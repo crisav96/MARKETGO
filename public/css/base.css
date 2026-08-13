@@ -1,0 +1,143 @@
+/* =====================================================
+   MARKETGO
+   BASE.CSS
+   Variables, Reset, Estilos Globales
+===================================================== */
+
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ==========================
+   VARIABLES
+========================== */
+
+:root{
+
+    --verde:#2E7D32;
+    --verdeOscuro:#1B5E20;
+    --verdeClaro:#4CAF50;
+
+    --rojo:#D32F2F;
+    --rojoOscuro:#B71C1C;
+
+    --gris:#F5F5F5;
+    --grisClaro:#F9F9F9;
+    --grisTexto:#666;
+    --grisOscuro:#333;
+
+    --blanco:#FFFFFF;
+
+    --sombraSuave:0 3px 15px rgba(0,0,0,.08);
+    --sombraMedia:0 10px 25px rgba(0,0,0,.15);
+
+    --radio:12px;
+    --transicion:.3s;
+}
+
+/* ==========================
+   BODY
+========================== */
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:var(--gris);
+    color:var(--grisOscuro);
+
+}
+
+/* ==========================
+   LINKS
+========================== */
+
+a{
+
+    text-decoration:none;
+    color:inherit;
+
+}
+
+/* ==========================
+   IMÁGENES
+========================== */
+
+img{
+
+    max-width:100%;
+    display:block;
+
+}
+
+/* ==========================
+   LISTAS
+========================== */
+
+ul{
+
+    list-style:none;
+
+}
+
+/* ==========================
+   BOTONES GENERALES
+========================== */
+
+.btn{
+
+    background:var(--verde);
+    color:white;
+
+    border:none;
+
+    padding:12px 22px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:var(--transicion);
+
+    font-weight:600;
+
+}
+
+.btn:hover{
+
+    background:var(--verdeOscuro);
+
+}
+
+/* ==========================
+   FORMULARIOS
+========================== */
+
+input,
+select,
+textarea,
+button{
+
+    font-family:inherit;
+
+}
+
+/* ==========================
+   CONTENEDOR GENERAL
+========================== */
+
+.container{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:0 40px;
+
+}
+

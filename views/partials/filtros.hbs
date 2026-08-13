@@ -1,0 +1,112 @@
+<form method="GET" action="/productos" class="filtros" id="formFiltros">
+
+    <h3>
+        <i class="bi bi-funnel-fill"></i>
+        Filtros
+    </h3>
+
+    <!-- Buscar -->
+
+    <div class="filtro-grupo">
+
+        <label>Buscar producto</label>
+
+        <div class="busqueda">
+
+            <i class="bi bi-search"></i>
+
+            <input
+                type="text"
+                name="buscar"
+                value="{{buscar}}"
+                placeholder="Buscar...">
+
+        </div>
+
+    </div>
+
+    <!-- Categorías -->
+
+    <div class="filtro-grupo">
+
+        <label>Categorías</label>
+
+        <ul class="lista-categorias">
+
+            {{#each categorias}}
+
+                <li>
+                    <label>
+                        <input type="checkbox" name="categoria" value="{{id}}" {{#if marcada}}checked{{/if}}>
+                        {{nombre}}
+                    </label>
+                </li>
+
+            {{/each}}
+
+        </ul>
+
+    </div>
+
+    <!-- Precio -->
+
+    <div class="filtro-grupo">
+
+        <label>Precio máximo</label>
+
+        <input
+            type="range"
+            name="precioMax"
+            id="rangoPrecio"
+            min="0"
+            max="10"
+            step="0.25"
+            value="{{precioMax}}">
+
+        <div class="precio-rango">
+
+            <span>₡0</span>
+
+            <span id="precioMaxTexto">₡{{precioMax}}</span>
+
+        </div>
+
+    </div>
+
+    <!-- Ordenar -->
+
+    <div class="filtro-grupo">
+
+        <label>Ordenar por</label>
+
+        <select name="orden">
+
+            <option value="nombre" {{#if ordenNombre}}selected{{/if}}>Nombre</option>
+
+            <option value="precio-asc" {{#if ordenPrecioAsc}}selected{{/if}}>Precio menor</option>
+
+            <option value="precio-desc" {{#if ordenPrecioDesc}}selected{{/if}}>Precio mayor</option>
+
+        </select>
+
+    </div>
+
+    <!-- Botones -->
+
+    <button type="submit" class="btn-aplicar">
+
+        <i class="bi bi-funnel-fill"></i>
+
+        Aplicar filtros
+
+    </button>
+
+    <a href="/productos" class="btn-limpiar">
+
+        <i class="bi bi-arrow-clockwise"></i>
+
+        Limpiar filtros
+
+    </a>
+
+</form>

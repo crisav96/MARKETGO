@@ -1,0 +1,532 @@
+/* =====================================================
+   MARKETGO
+   CHECKOUT.CSS
+===================================================== */
+
+.checkout{
+
+    padding:40px 0 60px;
+
+}
+
+.checkout-cabecera{
+
+    margin-bottom:24px;
+
+}
+
+.checkout-cabecera h2{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:var(--verde);
+
+}
+
+.checkout-cabecera p{
+
+    color:var(--grisTexto);
+
+    margin-top:6px;
+
+}
+
+.checkout-grid{
+
+    display:grid;
+
+    grid-template-columns:1.4fr 1fr;
+
+    gap:30px;
+
+    align-items:start;
+
+}
+
+/* ===== Formulario ===== */
+
+.checkout-form{
+
+    background:var(--blanco);
+
+    padding:30px;
+
+    border-radius:var(--radio);
+
+    box-shadow:var(--sombraSuave);
+
+}
+
+.checkout-form h3{
+
+    color:var(--grisOscuro);
+
+    margin:26px 0 16px;
+
+}
+
+.checkout-form h3:first-child{
+
+    margin-top:0;
+
+}
+
+.checkout-form-fila{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:16px;
+
+}
+
+.checkout-form-tres{
+
+    grid-template-columns:1fr 1fr 1fr;
+
+}
+
+.checkout-form select,
+.checkout-form textarea{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-family:inherit;
+
+    font-size:15px;
+
+    background:var(--blanco);
+
+    transition:var(--transicion);
+
+}
+
+.checkout-form textarea{
+
+    resize:vertical;
+
+}
+
+.checkout-form select:focus,
+.checkout-form textarea:focus{
+
+    border-color:var(--verde);
+
+    box-shadow:0 0 0 3px rgba(46,125,50,.15);
+
+}
+
+/* ===== Método de pago ===== */
+
+.checkout-metodos-pago{
+
+    display:grid;
+
+    grid-template-columns:repeat(3, 1fr);
+
+    gap:14px;
+
+    margin-bottom:26px;
+
+}
+
+.metodo-pago{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:16px 10px;
+
+    border:2px solid #eee;
+
+    border-radius:var(--radio);
+
+    text-align:center;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:var(--grisTexto);
+
+    cursor:pointer;
+
+    transition:var(--transicion);
+
+}
+
+.metodo-pago i{
+
+    font-size:22px;
+
+    color:var(--verde);
+
+}
+
+.metodo-pago input{
+
+    display:none;
+
+}
+
+.metodo-pago:has(input:checked){
+
+    border-color:var(--verde);
+
+    background:#e8f5e9;
+
+    color:var(--verde);
+
+}
+
+/* ===== Resumen ===== */
+
+.checkout-resumen{
+
+    background:var(--blanco);
+
+    padding:30px;
+
+    border-radius:var(--radio);
+
+    box-shadow:var(--sombraSuave);
+
+}
+
+.checkout-resumen h3{
+
+    margin-bottom:16px;
+
+    color:var(--grisOscuro);
+
+}
+
+.checkout-items{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    margin-bottom:20px;
+
+    padding-bottom:20px;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.checkout-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    padding-bottom:14px;
+
+    border-bottom:1px solid #f2f2f2;
+
+    font-size:14px;
+
+    color:var(--grisTexto);
+
+}
+
+.checkout-item:last-child{
+
+    border-bottom:none;
+
+    padding-bottom:0;
+
+}
+
+.checkout-item-info{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+}
+
+.checkout-item-info i{
+
+    color:var(--verde);
+
+    font-size:18px;
+
+    margin-top:2px;
+
+}
+
+.checkout-item-nombre{
+
+    display:block;
+
+    color:var(--grisOscuro);
+
+    font-weight:600;
+
+}
+
+.checkout-item-cantidad{
+
+    display:block;
+
+    color:#999;
+
+}
+
+.checkout-item strong{
+
+    color:var(--grisOscuro);
+
+    white-space:nowrap;
+
+}
+
+.checkout-vacio{
+
+    color:#999;
+
+    text-align:center;
+
+    padding:20px 0;
+
+}
+
+/* ===== Totales ===== */
+
+.checkout-totales{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.checkout-fila-total{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:14px;
+
+    color:var(--grisTexto);
+
+}
+
+.checkout-total-final{
+
+    margin-top:6px;
+
+    padding-top:14px;
+
+    border-top:1px solid #eee;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:var(--grisOscuro);
+
+}
+
+.checkout-total-final strong{
+
+    color:var(--rojo);
+
+    font-size:24px;
+
+}
+
+/* ===== Página de confirmación ===== */
+
+.confirmacion{
+
+    max-width:520px;
+
+    margin:60px auto;
+
+    background:var(--blanco);
+
+    padding:50px 40px;
+
+    border-radius:var(--radio);
+
+    box-shadow:var(--sombraMedia);
+
+    text-align:center;
+
+}
+
+.confirmacion-icono{
+
+    width:80px;
+
+    height:80px;
+
+    margin:0 auto 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#e8f5e9;
+
+    color:var(--verde);
+
+    font-size:40px;
+
+}
+
+.confirmacion h2{
+
+    color:var(--grisOscuro);
+
+    margin-bottom:10px;
+
+}
+
+.confirmacion p{
+
+    color:var(--grisTexto);
+
+    margin-bottom:6px;
+
+}
+
+.confirmacion-numero{
+
+    display:inline-block;
+
+    margin:16px 0 24px;
+
+    padding:8px 18px;
+
+    border-radius:20px;
+
+    background:var(--gris);
+
+    color:var(--verde);
+
+    font-weight:700;
+
+}
+
+.confirmacion-acciones{
+
+    display:flex;
+
+    gap:14px;
+
+    margin-top:10px;
+
+}
+
+.confirmacion-acciones a{
+
+    flex:1;
+
+    display:block;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    transition:var(--transicion);
+
+}
+
+.confirmacion-acciones .btn-primario{
+
+    background:var(--verde);
+
+    color:var(--blanco);
+
+}
+
+.confirmacion-acciones .btn-primario:hover{
+
+    background:var(--verdeOscuro);
+
+}
+
+.confirmacion-acciones .btn-secundario{
+
+    background:var(--gris);
+
+    color:var(--grisOscuro);
+
+}
+
+.confirmacion-acciones .btn-secundario:hover{
+
+    background:#e9e9e9;
+
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width:768px){
+
+    .checkout-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .checkout-form-fila,
+    .checkout-form-tres,
+    .checkout-metodos-pago{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .confirmacion-acciones{
+
+        flex-direction:column;
+
+    }
+
+}

@@ -1,0 +1,225 @@
+<header class="header">
+
+    <div class="header-container">
+
+        <!-- ===========================
+             LOGO
+        ============================ -->
+
+        <div class="logo">
+
+            <a href="/">
+
+                <img src="/img/logo/logo-marketgo.png" alt="MarketGo">
+
+            </a>
+
+            <div class="logo-texto">
+
+                <h1>MarketGo</h1>
+
+                <span>Tu supermercado en línea</span>
+
+            </div>
+
+        </div>
+
+        <!-- ===========================
+             BUSCADOR
+        ============================ -->
+
+        <div class="buscador">
+
+            <form action="/productos" method="GET">
+
+                <div class="buscador-box">
+
+                    <span class="icono"> <i class="bi bi-search"></i> </span>
+
+                    <input
+                        type="text"
+                        name="buscar"
+                        placeholder="Buscar frutas, verduras, bebidas, carnes..."
+                    >
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <!-- ===========================
+             ACCIONES
+        ============================ -->
+
+        <div class="header-actions">
+
+            <!-- Mi Cuenta -->
+
+            <div class="mi-cuenta">
+
+                <button
+                    class="cuenta-btn"
+                    id="btnCuenta">
+
+                    <span class="cuenta-icono"> <i class="bi bi-person-circle"> </i></span>
+
+                    <div class="cuenta-texto">
+
+                        {{#if usuario}}
+
+                            <small>Hola</small>
+                            <strong>{{usuario.nombre}}</strong>
+
+                        {{else}}
+
+                            <small>Bienvenido</small>
+                            <strong>Mi Cuenta</strong>
+
+                        {{/if}}
+
+                    </div>
+
+                    <span class="flecha">▼</span>
+
+                </button>
+
+                <div
+                    class="cuenta-menu"
+                    id="menuCuenta">
+
+                    {{#if usuario}}
+
+                        <div class="menu-header">
+
+                            <div class="menu-avatar">
+
+                                <i class="bi bi-person-circle"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>{{usuario.nombre}}</strong>
+
+                                <small>{{usuario.correo}}</small>
+
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <a href="#">
+
+                            <i class="bi bi-person"></i> </i> Mi perfil
+
+                        </a>
+
+                        <a href="/ordenes/historial">
+
+                            <i class="bi bi-box-seam"> </i> Mis pedidos
+
+                        </a>
+
+                        <a href="#">
+
+                            <i class="bi bi-heart"> </i> Favoritos
+
+                        </a>
+
+                        <a href="#">
+
+                            <i class="bi bi-gear"> </i> Configuración
+
+                        </a>
+
+                        <hr>
+
+                        <a href="/auth/logout" class="cerrar">
+
+                            <i class="bi bi-box-arrow-right"> </i> Cerrar sesión
+
+                        </a>
+
+                    {{else}}
+
+                        <div class="menu-titulo">
+
+                            Bienvenido a MarketGo
+
+                        </div>
+
+                        <p>
+
+                            Inicia sesión para realizar tus compras y acceder a tus pedidos.
+
+                        </p>
+
+                        <a href="/auth/login" class="menu-login">
+
+                            Iniciar sesión
+
+                        </a>
+
+                        <small class="registro-texto">
+
+                            ¿Nuevo en MarketGo?
+
+                        </small>
+
+                        <a href="/auth/registro" class="menu-registro">
+
+                            Crear una cuenta
+
+                        </a>
+
+                    {{/if}}
+
+                </div>
+
+            </div>
+
+            <!-- Carrito -->
+
+            <a href="#"
+
+                class="carrito-box carrito-header-btn"
+
+                id="abrirCarrito">
+
+                    <span class="carrito-icono">
+
+                        <i class="bi bi-cart3"></i>
+
+                    </span>
+
+                    <div class="carrito-info">
+
+                        <small>
+
+                            Mi carrito
+
+                        </small>
+
+                        <strong id="totalHeader">
+
+                            ₡0.00
+
+                        </strong>
+
+                    </div>
+
+                    <span class="contador" id="contadorCarrito">
+
+                        0
+
+                    </span>
+
+                </a>
+
+        </div>
+
+    </div>
+
+</header>

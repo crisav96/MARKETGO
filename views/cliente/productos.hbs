@@ -1,0 +1,65 @@
+<section class="catalogo">
+
+    <aside class="catalogo-sidebar">
+
+        {{> filtros}}
+
+    </aside>
+
+    <section class="catalogo-contenido">
+
+        <div class="catalogo-header">
+
+            <div>
+
+                <h2>Catálogo de Productos</h2>
+
+                <p>
+
+                    Descubre productos frescos, ofertas y las mejores marcas para tu hogar.
+
+                </p>
+
+            </div>
+
+            <div class="catalogo-resumen">
+
+                <span>
+
+                    {{productos.length}} productos disponibles
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="productos-grid">
+
+            {{#each productos}}
+
+                {{> tarjetaProducto}}
+
+            {{else}}
+
+                <div class="sin-productos">
+
+                    <i class="bi bi-box-seam"></i>
+
+                    <h3>No hay productos disponibles</h3>
+
+                    <p>
+
+                        Intenta cambiar los filtros.
+
+                    </p>
+
+                </div>
+
+            {{/each}}
+
+        </div>
+
+    </section>
+
+</section>

@@ -1,0 +1,39 @@
+<div class="admin-cabecera">
+
+    <h1>
+        <i class="bi bi-tags"></i>
+        {{#if categoria}}Editar categoría{{else}}Nueva categoría{{/if}}
+    </h1>
+
+    <p>Completa el nombre de la categoría.</p>
+
+</div>
+
+<div class="admin-panel admin-panel-form">
+
+    <form
+        action="{{#if categoria}}/admin/categorias/editar/{{categoria.id}}{{else}}/admin/categorias{{/if}}"
+        method="POST"
+        class="formulario">
+
+        <div class="campo">
+            <label>Nombre</label>
+            <input type="text" name="nombre" value="{{categoria.nombre}}" required minlength="2">
+        </div>
+
+        <div class="admin-form-acciones">
+
+            <a href="/admin/categorias" class="btn-admin-secundario">
+                Cancelar
+            </a>
+
+            <button type="submit" class="btn-admin">
+                <i class="bi bi-check-lg"></i>
+                {{#if categoria}}Guardar cambios{{else}}Crear categoría{{/if}}
+            </button>
+
+        </div>
+
+    </form>
+
+</div>

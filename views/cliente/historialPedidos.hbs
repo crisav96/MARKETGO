@@ -1,0 +1,59 @@
+<section class="historial">
+
+    <div class="historial-cabecera">
+
+        <h2><i class="bi bi-bag-check-fill"></i> Mis pedidos</h2>
+
+        <p>Consulta el estado de tus compras anteriores.</p>
+
+    </div>
+
+    <div class="historial-lista">
+
+        {{#each ordenes}}
+
+            <div class="pedido-card">
+
+                <div class="pedido-info">
+
+                    <span class="pedido-numero">Pedido #{{id}}</span>
+                    <span class="pedido-fecha">{{fechaFormateada}}</span>
+
+                </div>
+
+                <span class="badge-estado badge-{{estadoClase}}" data-badge-estado data-orden-id="{{id}}">
+                    {{estado}}
+                </span>
+
+                <div class="pedido-total">
+                    <span>Total</span>
+                    <strong>₡{{total}}</strong>
+                </div>
+
+                <a href="/ordenes/{{id}}" class="btn-ver-detalle">
+                    Ver detalle <i class="bi bi-arrow-right"></i>
+                </a>
+
+            </div>
+
+        {{else}}
+
+            <div class="historial-vacio">
+
+                <i class="bi bi-bag-x"></i>
+
+                <h3>Aún no tienes pedidos</h3>
+
+                <p>Cuando realices una compra, aparecerá aquí.</p>
+
+                <a href="/productos" class="btn-auth">
+                    Ir al catálogo
+                </a>
+
+            </div>
+
+        {{/each}}
+
+    </div>
+
+</section>

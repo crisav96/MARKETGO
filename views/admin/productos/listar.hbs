@@ -1,0 +1,122 @@
+<div class="admin-cabecera">
+
+    <h1><i class="bi bi-box-seam"></i> Productos</h1>
+
+    <p>Gestiona el catálogo de MarketGo.</p>
+
+</div>
+
+<div class="admin-panel">
+
+    <div class="admin-toolbar">
+
+        <form method="GET" action="/admin/productos" class="admin-filtros">
+
+            <input
+                type="text"
+                name="buscar"
+                placeholder="Buscar producto..."
+                value="{{buscar}}">
+
+            <select name="categoria">
+
+                <option value="">Todas las categorías</option>
+
+                {{#each categorias}}
+
+                    <option value="{{id}}" {{#if seleccionada}}selected{{/if}}>
+                        {{nombre}}
+                    </option>
+
+                {{/each}}
+
+            </select>
+
+            <button type="submit" class="btn-admin-secundario">
+                <i class="bi bi-search"></i> Filtrar
+            </button>
+
+        </form>
+
+        <a href="/admin/productos/nuevo" class="btn-admin">
+            <i class="bi bi-plus-lg"></i> Agregar producto
+        </a>
+
+    </div>
+
+    <div class="admin-tabla-wrap">
+
+        <table class="admin-tabla">
+
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {{#each productos}}
+
+                    <tr>
+
+                        <td>
+                            <img
+                                class="admin-tabla-img"
+                                src="/img/productos/{{imagen}}"
+                                alt="{{nombre}}"
+                                onerror="this.onerror=null; this.src='/img/productos/default.png';">
+                        </td>
+
+                        <td>{{nombre}}</td>
+
+                        <td>{{categoria}}</td>
+
+                        <td>₡{{precio}}</td>
+
+                        <td>{{stock}}</td>
+
+                        <td class="admin-tabla-acciones">
+
+                            <a href="/admin/productos/editar/{{id}}" class="btn-admin-secundario btn-admin-sm">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+
+                            <form
+                                action="/admin/productos/eliminar/{{id}}"
+                                method="POST"
+                                class="admin-form-inline"
+                                onsubmit="return confirm('¿Eliminar este producto? Esta acción no se puede deshacer.');">
+
+                                <button type="submit" class="btn-admin-peligro btn-admin-sm">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+
+                            </form>
+
+                        </td>
+
+                    </tr>
+
+                {{else}}
+
+                    <tr>
+                        <td colspan="6" class="admin-tabla-vacia">
+                            No se encontraron productos.
+                        </td>
+                    </tr>
+
+                {{/each}}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

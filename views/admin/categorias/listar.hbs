@@ -1,0 +1,79 @@
+<div class="admin-cabecera">
+
+    <h1><i class="bi bi-tags"></i> Categorías</h1>
+
+    <p>Gestiona las categorías de productos de MarketGo.</p>
+
+</div>
+
+<div class="admin-panel">
+
+    <div class="admin-acciones-lista">
+
+        <a href="/admin/categorias/nuevo" class="btn-admin">
+            <i class="bi bi-plus-lg"></i> Agregar categoría
+        </a>
+
+    </div>
+
+    <div class="admin-tabla-wrap">
+
+        <table class="admin-tabla">
+
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Productos</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {{#each categorias}}
+
+                    <tr>
+
+                        <td>{{nombre}}</td>
+
+                        <td>{{totalProductos}}</td>
+
+                        <td class="admin-tabla-acciones">
+
+                            <a href="/admin/categorias/editar/{{id}}" class="btn-admin-secundario btn-admin-sm">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+
+                            <form
+                                action="/admin/categorias/eliminar/{{id}}"
+                                method="POST"
+                                class="admin-form-inline"
+                                onsubmit="return confirm('¿Eliminar esta categoría?');">
+
+                                <button type="submit" class="btn-admin-peligro btn-admin-sm">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+
+                            </form>
+
+                        </td>
+
+                    </tr>
+
+                {{else}}
+
+                    <tr>
+                        <td colspan="3" class="admin-tabla-vacia">
+                            No hay categorías registradas.
+                        </td>
+                    </tr>
+
+                {{/each}}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

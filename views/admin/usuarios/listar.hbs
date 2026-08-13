@@ -1,0 +1,57 @@
+<div class="admin-cabecera">
+
+    <h1><i class="bi bi-people"></i> Usuarios</h1>
+
+    <p>Clientes registrados en MarketGo.</p>
+
+</div>
+
+<div class="admin-panel">
+
+    <div class="admin-acciones-lista">
+
+        <a href="/admin/usuarios/nuevo" class="btn-admin">
+            <i class="bi bi-person-plus"></i> Agregar usuario
+        </a>
+
+    </div>
+
+    <div class="admin-tabla-wrap">
+
+        <table class="admin-tabla">
+
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Registrado</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {{#each usuarios}}
+
+                    <tr>
+                        <td>{{nombre}}</td>
+                        <td>{{correo}}</td>
+                        <td>{{fechaFormateada}}</td>
+                    </tr>
+
+                {{else}}
+
+                    <tr>
+                        <td colspan="3" class="admin-tabla-vacia">
+                            No hay usuarios registrados.
+                        </td>
+                    </tr>
+
+                {{/each}}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

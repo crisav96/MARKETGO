@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{titulo}} · MarketGo Admin</title>
+
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/formularios.css">
+    <link rel="stylesheet" href="/css/historial.css">
+    <link rel="stylesheet" href="/css/toast.css">
+    <link rel="stylesheet" href="/css/admin.css">
+
+</head>
+
+<body class="admin-body">
+
+    {{> alertas}}
+
+    <div class="admin-layout">
+
+        {{> adminSidebar}}
+
+        <main class="admin-contenido">
+
+            {{{body}}}
+
+        </main>
+
+    </div>
+
+<script src="/js/admin/productoForm.js"></script>
+<script type="module" src="/js/main.js"></script>
+
+</body>
+
+</html>

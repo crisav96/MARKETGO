@@ -1,0 +1,451 @@
+/* =====================================================
+   MARKETGO
+   HOME.CSS
+===================================================== */
+
+/* ==========================
+   HERO / BANNER
+========================== */
+
+.hero{
+
+    background-image:url("/img/banner/banner-principal.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    height:550px;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.hero-overlay{
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.35);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+}
+
+.hero-content{
+
+    width:100%;
+
+    max-width:1400px;
+
+    padding:0 40px;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    color:white;
+
+}
+
+.hero-text{
+
+    max-width:560px;
+
+    text-align:left;
+
+}
+
+.hero-text h1{
+
+    font-size:52px;
+
+    line-height:1.2;
+
+    margin-bottom:20px;
+
+}
+
+.hero-text p{
+
+    font-size:20px;
+
+    margin-bottom:35px;
+
+    line-height:1.6;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.btn-outline{
+
+    padding:12px 24px;
+
+    border:2px solid white;
+
+    color:white;
+
+    border-radius:8px;
+
+    transition:var(--transicion);
+
+}
+
+.btn-outline:hover{
+
+    background:white;
+
+    color:var(--verde);
+
+}
+
+/* =====================================================
+   CATEGORÍAS
+===================================================== */
+
+.categorias{
+
+    padding:80px 0;
+
+    background:var(--blanco);
+
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:50px;
+
+}
+
+.section-title h2{
+
+    font-size:38px;
+
+    color:var(--verde);
+
+    margin-bottom:10px;
+
+}
+
+.section-title p{
+
+    color:var(--grisTexto);
+
+    font-size:18px;
+
+}
+
+.categorias-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:25px;
+
+}
+
+.categoria-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:30px 20px;
+
+    text-align:center;
+
+    box-shadow:var(--sombraSuave);
+
+    transition:var(--transicion);
+
+}
+
+.categoria-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--sombraMedia);
+
+}
+
+.categoria-card img{
+
+    width:90px;
+
+    height:90px;
+
+    object-fit:contain;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+}
+
+.categoria-card h3{
+
+    color:var(--grisOscuro);
+
+    font-size:18px;
+
+}
+
+/* =====================================================
+   PRODUCTOS DESTACADOS
+===================================================== */
+
+.destacados{
+
+    padding:80px 0;
+
+    background:var(--gris);
+
+}
+
+.productos-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
+}
+
+.producto-card{
+
+    position:relative;
+
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:var(--sombraSuave);
+
+    transition:var(--transicion);
+
+}
+
+.producto-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--sombraMedia);
+
+}
+
+.producto-badge{
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    background:var(--verde);
+
+    color:white;
+
+    padding:6px 12px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+}
+
+.producto-imagen{
+
+    height:220px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:25px;
+
+}
+
+.producto-imagen img{
+
+    width:170px;
+
+    height:170px;
+
+    object-fit:contain;
+
+}
+
+.producto-info{
+
+    padding:25px;
+
+}
+
+.producto-info h3{
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+    color:var(--grisOscuro);
+
+}
+
+.producto-categoria{
+
+    color:#777;
+
+    margin-bottom:20px;
+
+}
+
+.producto-precio{
+
+    color:var(--rojo);
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+
+}
+
+.btn-agregar{
+
+    width:100%;
+
+    border:none;
+
+    background:var(--verde);
+
+    color:white;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:var(--transicion);
+
+}
+
+.btn-agregar:hover{
+
+    background:var(--verdeOscuro);
+
+}
+
+/* =====================================================
+   BENEFICIOS
+===================================================== */
+
+.beneficios{
+
+    padding:90px 0;
+
+    background:white;
+
+}
+
+.beneficios-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+}
+
+.beneficio-card{
+
+    background:white;
+
+    padding:40px 30px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    box-shadow:var(--sombraSuave);
+
+    transition:var(--transicion);
+
+}
+
+.beneficio-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--sombraMedia);
+
+}
+
+.beneficio-icono{
+
+    width:80px;
+
+    height:80px;
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+    border-radius:50%;
+
+    background:var(--verde);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:36px;
+
+}
+
+.beneficio-card h3{
+
+    margin-bottom:15px;
+
+    color:var(--verde);
+
+}
+
+.beneficio-card p{
+
+    color:var(--grisTexto);
+
+    line-height:1.6;
+
+}

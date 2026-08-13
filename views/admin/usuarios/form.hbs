@@ -1,0 +1,43 @@
+<div class="admin-cabecera">
+
+    <h1><i class="bi bi-person-plus"></i> Nuevo usuario</h1>
+
+    <p>Crea una cuenta de cliente manualmente.</p>
+
+</div>
+
+<div class="admin-panel admin-panel-form">
+
+    <form action="/admin/usuarios" method="POST" class="formulario">
+
+        <div class="campo">
+            <label>Nombre</label>
+            <input type="text" name="nombre" required>
+        </div>
+
+        <div class="campo">
+            <label>Correo electrónico</label>
+            <input type="email" name="correo" required>
+        </div>
+
+        <div class="campo">
+            <label>Contraseña</label>
+            <input type="password" name="password" minlength="6" required>
+        </div>
+
+        <div class="admin-form-acciones">
+
+            <a href="/admin/usuarios" class="btn-admin-secundario">
+                Cancelar
+            </a>
+
+            <button type="submit" class="btn-admin">
+                <i class="bi bi-check-lg"></i>
+                Crear usuario
+            </button>
+
+        </div>
+
+    </form>
+
+</div>

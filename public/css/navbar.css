@@ -1,0 +1,114 @@
+/* =====================================================
+   MARKETGO
+   NAVBAR.CSS
+===================================================== */
+
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar{
+
+    background:var(--verdeOscuro);
+
+    position:sticky;
+
+    top:95px;
+
+    z-index:999;
+
+    box-shadow:var(--sombraSuave);
+
+}
+
+.navbar-container{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    height:65px;
+
+    padding:0 40px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+/* ==========================
+   MENÚ PRINCIPAL
+========================== */
+
+.menu-principal{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    list-style:none;
+
+}
+
+.menu-principal li{
+
+    display:flex;
+
+}
+
+.menu-principal a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:var(--transicion);
+
+}
+
+.menu-principal a:hover{
+
+    background:rgba(255,255,255,.15);
+
+}
+
+.menu-principal span{
+
+    font-size:18px;
+
+}
+
+/* ==========================
+   INFORMACIÓN
+========================== */
+
+.navbar-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}

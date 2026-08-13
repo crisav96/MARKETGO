@@ -1,0 +1,63 @@
+<section class="destacados">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Productos Destacados</h2>
+
+            <p>Los favoritos de nuestros clientes</p>
+
+        </div>
+
+        <div class="productos-grid">
+
+            {{#each productos}}
+
+                <div class="producto-card">
+
+                    <div class="producto-badge">
+
+                        Nuevo
+
+                    </div>
+
+                    <div class="producto-imagen">
+
+                        <img src="{{imagen}}" alt="{{nombre}}">
+
+                    </div>
+
+                    <div class="producto-info">
+
+                        <h3>{{nombre}}</h3>
+
+                        <p class="producto-categoria">
+
+                            {{categoria}}
+
+                        </p>
+
+                        <div class="producto-precio">
+
+                            ₡{{precio}}
+
+                        </div>
+
+                        <button class="btn-agregar">
+
+                            Agregar al carrito
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            {{/each}}
+
+        </div>
+
+    </div>
+
+</section>

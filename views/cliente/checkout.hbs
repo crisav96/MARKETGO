@@ -1,0 +1,133 @@
+<section class="checkout">
+
+    <div class="checkout-cabecera">
+
+        <h2><i class="bi bi-cart-check-fill"></i> Finalizar compra</h2>
+
+        <p>Revisa tu pedido antes de confirmar.</p>
+
+    </div>
+
+    <div class="checkout-grid">
+
+        <form id="formCheckout" class="checkout-form">
+
+            <h3>Datos de entrega</h3>
+
+            <div class="checkout-form-fila">
+
+                <div class="campo">
+                    <label>Nombre completo</label>
+                    <input type="text" name="nombre" value="{{usuario.nombre}}" required>
+                </div>
+
+                <div class="campo">
+                    <label>Correo</label>
+                    <input type="email" name="correo" value="{{usuario.correo}}" required>
+                </div>
+
+            </div>
+
+            <div class="campo">
+                <label>Teléfono</label>
+                <input type="tel" name="telefono" placeholder="8888-8888" required>
+            </div>
+
+            <div class="checkout-form-fila checkout-form-tres">
+
+                <div class="campo">
+                    <label>Provincia</label>
+                    <select name="provincia" required>
+                        <option value="" disabled selected>Selecciona...</option>
+                        <option>San José</option>
+                        <option>Alajuela</option>
+                        <option>Cartago</option>
+                        <option>Heredia</option>
+                        <option>Guanacaste</option>
+                        <option>Puntarenas</option>
+                        <option>Limón</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label>Cantón</label>
+                    <input type="text" name="canton" required>
+                </div>
+
+                <div class="campo">
+                    <label>Distrito</label>
+                    <input type="text" name="distrito" required>
+                </div>
+
+            </div>
+
+            <div class="campo">
+                <label>Dirección exacta</label>
+                <textarea
+                    name="direccionExacta"
+                    rows="3"
+                    placeholder="Señas, calle, número, referencias..."
+                    required></textarea>
+            </div>
+
+            <h3>Método de pago</h3>
+
+            <div class="checkout-metodos-pago">
+
+                <label class="metodo-pago">
+                    <input type="radio" name="metodoPago" value="Tarjeta">
+                    <i class="bi bi-credit-card-fill"></i>
+                    Tarjeta
+                </label>
+
+                <label class="metodo-pago">
+                    <input type="radio" name="metodoPago" value="SINPE Móvil">
+                    <i class="bi bi-phone-fill"></i>
+                    SINPE Móvil
+                </label>
+
+                <label class="metodo-pago">
+                    <input type="radio" name="metodoPago" value="Contra entrega" checked>
+                    <i class="bi bi-cash-coin"></i>
+                    Contra entrega
+                </label>
+
+            </div>
+
+            <button type="submit" class="btn-auth">
+                <i class="bi bi-check-circle-fill"></i>
+                Realizar pedido
+            </button>
+
+        </form>
+
+        <aside class="checkout-resumen">
+
+            <h3>Resumen del pedido</h3>
+
+            <div id="checkoutItems" class="checkout-items"></div>
+
+            <div class="checkout-totales">
+
+                <div class="checkout-fila-total">
+                    <span>Subtotal</span>
+                    <span id="checkoutSubtotal">₡0.00</span>
+                </div>
+
+                <div class="checkout-fila-total">
+                    <span>Envío</span>
+                    <span id="checkoutEnvio">₡0.00</span>
+                </div>
+
+                <div class="checkout-fila-total checkout-total-final">
+                    <span>Total</span>
+                    <strong id="checkoutTotal">₡0.00</strong>
+                </div>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</section>

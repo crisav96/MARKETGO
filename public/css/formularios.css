@@ -1,0 +1,163 @@
+/* =====================================================
+   MARKETGO
+   FORMULARIOS.CSS
+===================================================== */
+
+/* ==========================
+   CONTENEDOR DEL FORMULARIO
+========================== */
+
+.formulario{
+
+    width:100%;
+    max-width:450px;
+
+    margin:60px auto;
+
+    background:var(--blanco);
+
+    padding:40px;
+
+    border-radius:18px;
+
+    box-shadow:var(--sombraMedia);
+
+}
+
+.formulario h2{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    color:var(--verde);
+
+}
+
+/* ==========================
+   CAMPOS
+========================== */
+
+.campo{
+
+    margin-bottom:20px;
+
+}
+
+.campo label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:var(--grisOscuro);
+
+}
+
+.campo input{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    outline:none;
+
+    transition:var(--transicion);
+
+    font-size:15px;
+
+}
+
+.campo input:focus{
+
+    border-color:var(--verde);
+
+    box-shadow:0 0 0 3px rgba(46,125,50,.15);
+
+}
+
+/* ==========================
+   BOTÓN
+========================== */
+
+.btn-auth{
+
+    width:100%;
+
+    margin-top:10px;
+
+    padding:14px 16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(135deg, var(--verdeClaro), var(--verde));
+
+    color:var(--blanco);
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    box-shadow:0 8px 20px rgba(46,125,50,.25);
+
+    transition:var(--transicion);
+
+}
+
+.btn-auth:hover{
+
+    background:linear-gradient(135deg, var(--verde), var(--verdeOscuro));
+
+    box-shadow:0 12px 24px rgba(46,125,50,.32);
+
+    transform:translateY(-2px);
+
+}
+
+.btn-auth:active{
+
+    transform:translateY(0);
+
+    box-shadow:0 4px 10px rgba(46,125,50,.25);
+
+}
+
+/* ==========================
+   ENLACES
+========================== */
+
+.formulario a{
+
+    color:var(--verde);
+
+    font-weight:600;
+
+}
+
+.formulario p{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    color:var(--grisTexto);
+
+}

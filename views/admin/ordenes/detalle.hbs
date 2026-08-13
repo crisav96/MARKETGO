@@ -1,0 +1,115 @@
+<a href="/admin/ordenes" class="volver">
+    <i class="bi bi-arrow-left"></i> Volver a pedidos
+</a>
+
+<div class="detalle-cabecera">
+
+    <h2>Pedido #{{orden.id}}</h2>
+
+    <span class="badge-estado badge-{{orden.estadoClase}}">
+        {{orden.estado}}
+    </span>
+
+</div>
+
+<div class="detalle-grid">
+
+    <div class="detalle-productos">
+
+        <h3>Productos</h3>
+
+        {{#each orden.productos}}
+
+            <div class="detalle-item">
+
+                <img
+                    src="/img/productos/{{imagen}}"
+                    alt="{{nombre}}"
+                    onerror="this.onerror=null; this.src='/img/productos/default.png';">
+
+                <div class="detalle-item-info">
+
+                    <span>{{nombre}}</span>
+
+                    <small>{{cantidad}} x ₡{{precio}}</small>
+
+                </div>
+
+                <strong>₡{{subtotal}}</strong>
+
+            </div>
+
+        {{/each}}
+
+    </div>
+
+    <aside class="detalle-resumen">
+
+        <h3>Cliente</h3>
+
+        <div class="detalle-dato">
+            <span>Nombre</span>
+            <strong>{{orden.nombreCliente}}</strong>
+        </div>
+
+        <div class="detalle-dato">
+            <span>Correo</span>
+            <strong>{{orden.correoCliente}}</strong>
+        </div>
+
+        <h3>Entrega</h3>
+
+        <div class="detalle-dato">
+            <span>Fecha</span>
+            <strong>{{orden.fechaFormateada}}</strong>
+        </div>
+
+        <div class="detalle-dato">
+            <span>Dirección</span>
+            <strong>{{orden.direccion}}</strong>
+        </div>
+
+        <div class="detalle-dato">
+            <span>Teléfono</span>
+            <strong>{{orden.telefono}}</strong>
+        </div>
+
+        <div class="detalle-dato">
+            <span>Método de pago</span>
+            <strong>{{orden.metodo_pago}}</strong>
+        </div>
+
+        <div class="detalle-total">
+            <span>Total</span>
+            <strong>₡{{orden.total}}</strong>
+        </div>
+
+    </aside>
+
+</div>
+
+<div class="admin-panel admin-cambiar-estado">
+
+    <h3>Cambiar estado</h3>
+
+    <form action="/admin/ordenes/{{orden.id}}/estado" method="POST" class="admin-form-estado">
+
+        <select name="estado">
+
+            {{#each estados}}
+
+                <option value="{{valor}}" {{#if seleccionado}}selected{{/if}}>
+                    {{valor}}
+                </option>
+
+            {{/each}}
+
+        </select>
+
+        <button type="submit" class="btn-admin">
+            <i class="bi bi-arrow-repeat"></i> Actualizar estado
+        </button>
+
+    </form>
+
+</div>

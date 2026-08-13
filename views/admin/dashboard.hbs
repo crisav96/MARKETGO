@@ -1,0 +1,128 @@
+<div class="admin-cabecera">
+
+    <h1><i class="bi bi-speedometer2"></i> Dashboard</h1>
+
+    <p>Resumen general de MarketGo.</p>
+
+</div>
+
+<div class="admin-stats-grid">
+
+    <div class="stat-card">
+
+        <div class="stat-icono stat-verde">
+            <i class="bi bi-box-seam-fill"></i>
+        </div>
+
+        <div class="stat-texto">
+            <span class="stat-numero">{{totalProductos}}</span>
+            <span class="stat-etiqueta">Productos</span>
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div class="stat-icono stat-azul">
+            <i class="bi bi-tags-fill"></i>
+        </div>
+
+        <div class="stat-texto">
+            <span class="stat-numero">{{totalCategorias}}</span>
+            <span class="stat-etiqueta">Categorías</span>
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div class="stat-icono stat-morado">
+            <i class="bi bi-people-fill"></i>
+        </div>
+
+        <div class="stat-texto">
+            <span class="stat-numero">{{totalUsuarios}}</span>
+            <span class="stat-etiqueta">Usuarios</span>
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div class="stat-icono stat-naranja">
+            <i class="bi bi-receipt"></i>
+        </div>
+
+        <div class="stat-texto">
+            <span class="stat-numero">{{totalOrdenes}}</span>
+            <span class="stat-etiqueta">Pedidos</span>
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div class="stat-icono stat-rojo">
+            <i class="bi bi-cash-coin"></i>
+        </div>
+
+        <div class="stat-texto">
+            <span class="stat-numero">₡{{totalVentas}}</span>
+            <span class="stat-etiqueta">Ventas totales</span>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="admin-panel">
+
+    <h2>Últimos pedidos</h2>
+
+    <div class="admin-tabla-wrap">
+
+        <table class="admin-tabla">
+
+            <thead>
+                <tr>
+                    <th>Pedido</th>
+                    <th>Cliente</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {{#each ultimasOrdenes}}
+
+                    <tr>
+                        <td>#{{id}}</td>
+                        <td>{{nombreCliente}}</td>
+                        <td>{{fechaFormateada}}</td>
+                        <td>₡{{total}}</td>
+                        <td>
+                            <span class="badge-estado badge-{{estadoClase}}">
+                                {{estado}}
+                            </span>
+                        </td>
+                    </tr>
+
+                {{else}}
+
+                    <tr>
+                        <td colspan="5" class="admin-tabla-vacia">
+                            Aún no hay pedidos registrados.
+                        </td>
+                    </tr>
+
+                {{/each}}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

@@ -1,0 +1,497 @@
+/* =====================================================
+   MARKETGO
+   HISTORIAL.CSS
+   Historial de pedidos + detalle de pedido
+===================================================== */
+
+/* ===== Cabecera ===== */
+
+.historial-cabecera{
+
+    margin-bottom:24px;
+
+}
+
+.historial-cabecera h2{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:var(--verde);
+
+}
+
+.historial-cabecera p{
+
+    color:var(--grisTexto);
+
+    margin-top:6px;
+
+}
+
+.historial{
+
+    padding:40px 0 60px;
+
+}
+
+/* ===== Lista de pedidos ===== */
+
+.historial-lista{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+.pedido-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    background:var(--blanco);
+
+    padding:20px 24px;
+
+    border-radius:var(--radio);
+
+    box-shadow:var(--sombraSuave);
+
+    flex-wrap:wrap;
+
+}
+
+.pedido-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+    flex:1;
+
+    min-width:160px;
+
+}
+
+.pedido-numero{
+
+    font-weight:700;
+
+    color:var(--grisOscuro);
+
+}
+
+.pedido-fecha{
+
+    font-size:13px;
+
+    color:#999;
+
+}
+
+.pedido-total{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-end;
+
+    gap:2px;
+
+    font-size:13px;
+
+    color:var(--grisTexto);
+
+}
+
+.pedido-total strong{
+
+    color:var(--rojo);
+
+    font-size:18px;
+
+}
+
+.btn-ver-detalle{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    background:var(--gris);
+
+    color:var(--grisOscuro);
+
+    font-weight:600;
+
+    font-size:14px;
+
+    text-decoration:none;
+
+    transition:var(--transicion);
+
+}
+
+.btn-ver-detalle:hover{
+
+    background:var(--verde);
+
+    color:var(--blanco);
+
+}
+
+/* ===== Estado vacío ===== */
+
+.historial-vacio{
+
+    background:var(--blanco);
+
+    padding:60px 20px;
+
+    border-radius:var(--radio);
+
+    box-shadow:var(--sombraSuave);
+
+    text-align:center;
+
+    color:#999;
+
+}
+
+.historial-vacio i{
+
+    font-size:60px;
+
+    margin-bottom:16px;
+
+    display:block;
+
+}
+
+.historial-vacio h3{
+
+    color:var(--grisOscuro);
+
+    margin-bottom:8px;
+
+}
+
+.historial-vacio p{
+
+    margin-bottom:20px;
+
+}
+
+.historial-vacio .btn-auth{
+
+    max-width:220px;
+
+    margin:0 auto;
+
+}
+
+/* ===== Badge de estado (compartido: lista y detalle) ===== */
+
+.badge-estado{
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    white-space:nowrap;
+
+}
+
+.badge-pendiente{
+
+    background:#fff8e1;
+
+    color:#ef6c00;
+
+}
+
+.badge-en-camino{
+
+    background:#e3f2fd;
+
+    color:#1565c0;
+
+}
+
+.badge-entregado{
+
+    background:#e8f5e9;
+
+    color:var(--verde);
+
+}
+
+/* ===== Detalle de pedido ===== */
+
+.detalle-pedido{
+
+    padding:40px 0 60px;
+
+}
+
+.volver{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    color:var(--grisTexto);
+
+    font-weight:600;
+
+    font-size:14px;
+
+    margin-bottom:20px;
+
+}
+
+.volver:hover{
+
+    color:var(--verde);
+
+}
+
+.detalle-cabecera{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+    margin-bottom:24px;
+
+}
+
+.detalle-cabecera h2{
+
+    color:var(--verde);
+
+}
+
+.detalle-grid{
+
+    display:grid;
+
+    grid-template-columns:1.4fr 1fr;
+
+    gap:30px;
+
+    align-items:start;
+
+}
+
+.detalle-productos{
+
+    background:var(--blanco);
+
+    padding:30px;
+
+    border-radius:var(--radio);
+
+    box-shadow:var(--sombraSuave);
+
+}
+
+.detalle-productos h3{
+
+    color:var(--grisOscuro);
+
+    margin-bottom:16px;
+
+}
+
+.detalle-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px 0;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.detalle-item:last-child{
+
+    border-bottom:none;
+
+    padding-bottom:0;
+
+}
+
+.detalle-item img{
+
+    width:60px;
+
+    height:60px;
+
+    object-fit:contain;
+
+}
+
+.detalle-item-info{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+}
+
+.detalle-item-info small{
+
+    color:#999;
+
+}
+
+.detalle-item strong{
+
+    color:var(--grisOscuro);
+
+    white-space:nowrap;
+
+}
+
+.detalle-resumen{
+
+    background:var(--blanco);
+
+    padding:30px;
+
+    border-radius:var(--radio);
+
+    box-shadow:var(--sombraSuave);
+
+}
+
+.detalle-resumen h3{
+
+    color:var(--grisOscuro);
+
+    margin-bottom:16px;
+
+}
+
+.detalle-dato{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    padding-bottom:12px;
+
+    margin-bottom:12px;
+
+    border-bottom:1px solid #f2f2f2;
+
+    font-size:14px;
+
+}
+
+.detalle-dato span{
+
+    color:var(--grisTexto);
+
+}
+
+.detalle-dato strong{
+
+    color:var(--grisOscuro);
+
+    text-align:right;
+
+}
+
+.detalle-total{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding-top:6px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:var(--grisOscuro);
+
+}
+
+.detalle-total strong{
+
+    color:var(--rojo);
+
+    font-size:24px;
+
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width:768px){
+
+    .pedido-card{
+
+        justify-content:space-between;
+
+    }
+
+    .detalle-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .detalle-cabecera{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+}

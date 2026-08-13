@@ -1,0 +1,76 @@
+<section class="detalle-producto">
+
+    <a href="/productos" class="volver">
+        <i class="bi bi-arrow-left"></i> Volver al catálogo
+    </a>
+
+    <div class="detalle-producto-grid">
+
+        <div class="detalle-producto-imagen">
+
+            {{#if producto.imagen}}
+
+                <img
+                    src="/img/productos/{{producto.imagen}}"
+                    alt="{{producto.nombre}}"
+                    onerror="this.onerror=null; this.src='/img/productos/default.png';">
+
+            {{else}}
+
+                <img
+                    src="/img/productos/default.png"
+                    alt="Sin imagen disponible">
+
+            {{/if}}
+
+        </div>
+
+        <div class="detalle-producto-info">
+
+            <span class="producto-categoria">{{producto.categoria}}</span>
+
+            <h1>{{producto.nombre}}</h1>
+
+            <p class="detalle-producto-descripcion">{{producto.descripcion}}</p>
+
+            <div class="detalle-producto-precio">₡{{producto.precio}}</div>
+
+            <div class="detalle-producto-stock">
+
+                {{#if producto.stock}}
+
+                    <i class="bi bi-check-circle-fill"></i> En stock ({{producto.stock}} disponibles)
+
+                {{else}}
+
+                    <i class="bi bi-x-circle-fill"></i> Agotado
+
+                {{/if}}
+
+            </div>
+
+            <button
+                class="btn-agregar"
+
+                data-id="{{producto.id}}"
+
+                data-nombre="{{producto.nombre}}"
+
+                data-precio="{{producto.precio}}"
+
+                data-imagen="{{producto.imagen}}"
+
+                data-categoria="{{producto.categoria}}"
+
+                {{#unless producto.stock}}disabled{{/unless}}>
+
+                <i class="bi bi-cart-plus"></i>
+                Agregar al carrito
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>

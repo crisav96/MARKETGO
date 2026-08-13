@@ -1,0 +1,93 @@
+<div class="producto-card">
+
+    <span class="producto-badge">
+
+        Nuevo
+
+    </span>
+
+    <button class="favorito">
+
+        <i class="bi bi-heart"></i>
+
+    </button>
+
+    <a href="/productos/{{id}}" class="producto-imagen">
+
+        {{#if imagen}}
+
+            <img
+                class="producto-img"
+                src="/img/productos/{{imagen}}"
+                alt="{{nombre}}"
+                onerror="this.onerror=null; this.src='/img/productos/default.png'; this.classList.add('sin-imagen');">
+
+        {{else}}
+
+            <img
+                class="producto-img sin-imagen"
+                src="/img/productos/default.png"
+                alt="Sin imagen disponible">
+
+        {{/if}}
+
+    </a>
+
+    <div class="producto-info">
+
+        <span class="producto-categoria">
+
+            {{categoria}}
+
+        </span>
+
+        <h3>
+
+            <a href="/productos/{{id}}">{{nombre}}</a>
+
+        </h3>
+
+        <div class="producto-rating">
+
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+
+            <small>(4.8)</small>
+
+        </div>
+
+        <div class="producto-precio">
+
+            <span class="precio-actual">
+
+                ₡{{precio}}
+
+            </span>
+
+        </div>
+
+        <button
+            class="btn-agregar"
+
+            data-id="{{id}}"
+
+            data-nombre="{{nombre}}"
+
+            data-precio="{{precio}}"
+
+            data-imagen="{{imagen}}"
+
+            data-categoria="{{categoria}}">
+
+            <i class="bi bi-cart-plus"></i>
+
+            Agregar al carrito
+
+        </button>
+
+    </div>
+
+</div>

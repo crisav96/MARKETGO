@@ -1,0 +1,170 @@
+/* =====================================================
+   MARKETGO
+   TOASTS (ALERTAS FLOTANTES)
+===================================================== */
+
+.toast-contenedor{
+
+    position:fixed;
+
+    top:20px;
+
+    right:20px;
+
+    z-index:2000;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    max-width:360px;
+
+}
+
+.toast{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:14px 16px;
+
+    border-radius:var(--radio);
+
+    box-shadow:var(--sombraMedia);
+
+    background:var(--blanco);
+
+    border-left:4px solid transparent;
+
+    animation:toast-entrar .3s ease;
+
+}
+
+.toast i:first-child{
+
+    font-size:20px;
+
+}
+
+.toast span{
+
+    flex:1;
+
+    font-size:14px;
+
+    line-height:1.4;
+
+}
+
+.toast-cerrar{
+
+    border:none;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    color:var(--grisTexto);
+
+    font-size:16px;
+
+    line-height:1;
+
+    padding:2px;
+
+}
+
+/* ===== Variantes ===== */
+
+.toast-exito{
+
+    border-left-color:var(--verde);
+
+}
+
+.toast-exito i:first-child{
+
+    color:var(--verde);
+
+}
+
+.toast-error{
+
+    border-left-color:var(--rojo);
+
+}
+
+.toast-error i:first-child{
+
+    color:var(--rojo);
+
+}
+
+.toast-advertencia{
+
+    border-left-color:#ef6c00;
+
+}
+
+.toast-advertencia i:first-child{
+
+    color:#ef6c00;
+
+}
+
+/* ===== Animaciones ===== */
+
+@keyframes toast-entrar{
+
+    from{
+
+        opacity:0;
+        transform:translateX(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateX(0);
+
+    }
+
+}
+
+.toast-salir{
+
+    animation:toast-salir .25s ease forwards;
+
+}
+
+@keyframes toast-salir{
+
+    to{
+
+        opacity:0;
+        transform:translateX(40px);
+
+    }
+
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width:480px){
+
+    .toast-contenedor{
+
+        left:16px;
+        right:16px;
+        top:16px;
+        max-width:none;
+
+    }
+
+}
