@@ -112,6 +112,31 @@ app.get("/", (req, res) => {
 
 });
 
+// Secciones aún no construidas
+app.get("/categorias", (req, res) => {
+
+    res.render("mantenimiento", {
+        titulo: "Categorías"
+    });
+
+});
+
+app.get("/ofertas", (req, res) => {
+
+    res.render("mantenimiento", {
+        titulo: "Ofertas"
+    });
+
+});
+
+app.get("/contacto", (req, res) => {
+
+    res.render("mantenimiento", {
+        titulo: "Contacto"
+    });
+
+});
+
 // ======================================
 // Servidor
 // ======================================

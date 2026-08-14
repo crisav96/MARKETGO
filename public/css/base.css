@@ -141,3 +141,51 @@ button{
 
 }
 
+/* ==========================
+   EN MANTENIMIENTO
+========================== */
+
+.mantenimiento{
+
+    max-width:520px;
+
+    margin:80px auto;
+
+    background:var(--blanco);
+
+    padding:60px 40px;
+
+    border-radius:var(--radio);
+
+    box-shadow:var(--sombraSuave);
+
+    text-align:center;
+
+}
+
+.mantenimiento i{
+
+    font-size:60px;
+
+    color:var(--verde);
+
+    margin-bottom:20px;
+
+}
+
+.mantenimiento h2{
+
+    color:var(--grisOscuro);
+
+    margin-bottom:10px;
+
+}
+
+.mantenimiento p{
+
+    color:var(--grisTexto);
+
+    margin-bottom:24px;
+
+}
+
