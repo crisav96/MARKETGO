@@ -114,6 +114,13 @@
 
 }
 
+.hero-badge,
+.hero-decoracion{
+
+    display:none;
+
+}
+
 /* =====================================================
    CATEGORÍAS
 ===================================================== */
@@ -472,23 +479,101 @@
 
         height:auto;
 
-        min-height:420px;
+        min-height:460px;
 
-        padding:60px 0;
+        padding:70px 0;
+
+        position:relative;
+
+        overflow:hidden;
 
         /* La imagen trae su propio texto "MarketGo" incrustado; a este
            ancho no hay margen de recorte suficiente para ocultarlo sin
            que choque con el texto real. Se reemplaza por un degradado
-           de marca — el mensaje real ya lo da el texto en HTML. */
+           de marca con volumen — el mensaje real ya lo da el texto HTML. */
         background-image:none;
-        background-color:var(--verdeOscuro);
-        background:linear-gradient(135deg, var(--verdeOscuro), var(--verde));
+        background:
+            radial-gradient(circle at 15% 20%, rgba(255,255,255,.18), transparent 45%),
+            linear-gradient(135deg, #143d17, var(--verdeOscuro) 45%, var(--verde) 100%);
+
+    }
+
+    .hero::before,
+    .hero::after{
+
+        content:"";
+
+        position:absolute;
+
+        border-radius:50%;
+
+        filter:blur(50px);
+
+        opacity:.35;
+
+        z-index:0;
+
+    }
+
+    .hero::before{
+
+        width:200px;
+
+        height:200px;
+
+        background:#FFC107;
+
+        top:-60px;
+
+        right:-40px;
+
+    }
+
+    .hero::after{
+
+        width:160px;
+
+        height:160px;
+
+        background:#8BC34A;
+
+        bottom:-50px;
+
+        left:-40px;
+
+    }
+
+    .hero-decoracion{
+
+        display:block;
+
+        position:absolute;
+
+        font-size:34px;
+
+        opacity:.3;
+
+        z-index:0;
+
+    }
+
+    .hero-decoracion-1{ top:12%; left:6%; transform:rotate(-12deg); }
+    .hero-decoracion-2{ bottom:6%; right:6%; transform:rotate(10deg); }
+    .hero-decoracion-3{ top:8%; right:12%; transform:rotate(6deg); font-size:22px; }
+
+    .hero-overlay{
+
+        background:transparent;
+
+        position:relative;
+
+        z-index:1;
 
     }
 
     .hero-content{
 
-        padding:0 20px;
+        padding:0 24px;
 
         justify-content:center;
 
@@ -502,9 +587,47 @@
 
     }
 
+    .hero-badge{
+
+        display:inline-flex;
+
+        align-items:center;
+
+        gap:8px;
+
+        background:rgba(255,255,255,.16);
+
+        backdrop-filter:blur(6px);
+
+        -webkit-backdrop-filter:blur(6px);
+
+        border:1px solid rgba(255,255,255,.35);
+
+        padding:8px 16px;
+
+        border-radius:30px;
+
+        font-size:13px;
+
+        font-weight:600;
+
+        margin-bottom:18px;
+
+    }
+
+    .hero-badge i{
+
+        color:#FFC107;
+
+    }
+
     .hero-text h1{
 
-        font-size:34px;
+        font-size:32px;
+
+        font-weight:800;
+
+        letter-spacing:-.5px;
 
     }
 
@@ -519,6 +642,36 @@
         justify-content:center;
 
         flex-wrap:wrap;
+
+    }
+
+    .hero-buttons .btn{
+
+        background:white;
+
+        color:var(--verdeOscuro);
+
+        box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+        font-weight:700;
+
+    }
+
+    .hero-buttons .btn:hover{
+
+        background:#f5f5f5;
+
+        transform:translateY(-2px);
+
+    }
+
+    .btn-outline{
+
+        border-color:rgba(255,255,255,.7);
+
+        backdrop-filter:blur(4px);
+
+        -webkit-backdrop-filter:blur(4px);
 
     }
 
