@@ -518,7 +518,7 @@
 
     .producto-imagen{
 
-        height:px;
+        height:190px;
 
     }
 
@@ -535,6 +535,18 @@
         grid-template-columns:1fr;
 
         padding:24px;
+
+    }
+
+    .detalle-producto-info h1{
+
+        font-size:26px;
+
+    }
+
+    .detalle-producto-precio{
+
+        font-size:28px;
 
     }
 

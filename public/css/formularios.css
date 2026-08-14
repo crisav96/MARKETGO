@@ -161,3 +161,27 @@
     color:var(--grisTexto);
 
 }
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:600px){
+
+    .contenedor > h2{
+
+        margin:0 16px;
+
+    }
+
+    .formulario{
+
+        width:calc(100% - 32px);
+
+        margin:30px auto;
+
+        padding:28px 20px;
+
+    }
+
+}

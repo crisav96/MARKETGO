@@ -34,7 +34,11 @@
 
 .historial{
 
-    padding:40px 0 60px;
+    max-width:1400px;
+
+    margin:0 auto;
+
+    padding:40px 30px 60px;
 
 }
 
@@ -252,7 +256,11 @@
 
 .detalle-pedido{
 
-    padding:40px 0 60px;
+    max-width:1400px;
+
+    margin:0 auto;
+
+    padding:40px 30px 60px;
 
 }
 
@@ -474,15 +482,31 @@
 
 @media (max-width:768px){
 
+    .historial,
+    .detalle-pedido{
+
+        padding:24px 16px 40px;
+
+    }
+
     .pedido-card{
 
         justify-content:space-between;
+
+        padding:16px;
 
     }
 
     .detalle-grid{
 
         grid-template-columns:1fr;
+
+    }
+
+    .detalle-productos,
+    .detalle-resumen{
+
+        padding:20px;
 
     }
 

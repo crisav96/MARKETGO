@@ -15,6 +15,8 @@
 
     background-position:center;
 
+    background-repeat:no-repeat;
+
     height:550px;
 
     display:flex;
@@ -447,5 +449,105 @@
     color:var(--grisTexto);
 
     line-height:1.6;
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:900px){
+
+    .hero{
+
+        height:auto;
+
+        min-height:420px;
+
+        padding:60px 0;
+
+        /* La imagen trae su propio texto "MarketGo" incrustado; a este
+           ancho no hay margen de recorte suficiente para ocultarlo sin
+           que choque con el texto real. Se reemplaza por un degradado
+           de marca — el mensaje real ya lo da el texto en HTML. */
+        background-image:none;
+        background-color:var(--verdeOscuro);
+        background:linear-gradient(135deg, var(--verdeOscuro), var(--verde));
+
+    }
+
+    .hero-content{
+
+        padding:0 20px;
+
+        justify-content:center;
+
+    }
+
+    .hero-text{
+
+        max-width:100%;
+
+        text-align:center;
+
+    }
+
+    .hero-text h1{
+
+        font-size:34px;
+
+    }
+
+    .hero-text p{
+
+        font-size:16px;
+
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+
+        flex-wrap:wrap;
+
+    }
+
+    .categorias,
+    .destacados,
+    .beneficios{
+
+        padding:50px 0;
+
+    }
+
+    .section-title h2{
+
+        font-size:28px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .hero-text h1{
+
+        font-size:26px;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
+
+    .hero-buttons a{
+
+        text-align:center;
+
+    }
 
 }

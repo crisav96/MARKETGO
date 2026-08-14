@@ -5,7 +5,11 @@
 
 .checkout{
 
-    padding:40px 0 60px;
+    max-width:1400px;
+
+    margin:0 auto;
+
+    padding:40px 30px 60px;
 
 }
 
@@ -509,9 +513,22 @@
 
 @media (max-width:768px){
 
+    .checkout{
+
+        padding:24px 16px 40px;
+
+    }
+
     .checkout-grid{
 
         grid-template-columns:1fr;
+
+    }
+
+    .checkout-form,
+    .checkout-resumen{
+
+        padding:20px;
 
     }
 
@@ -526,6 +543,14 @@
     .confirmacion-acciones{
 
         flex-direction:column;
+
+    }
+
+    .confirmacion{
+
+        margin:30px 16px;
+
+        padding:36px 24px;
 
     }
 
