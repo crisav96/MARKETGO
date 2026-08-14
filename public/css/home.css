@@ -186,17 +186,27 @@
 
 }
 
-.categoria-card img{
+.categoria-icono{
 
-    width:90px;
+    display:block;
 
-    height:90px;
+    font-size:56px;
 
-    object-fit:contain;
-
-    margin:auto;
+    line-height:1;
 
     margin-bottom:20px;
+
+}
+
+.categorias-vacio{
+
+    grid-column:1/-1;
+
+    text-align:center;
+
+    color:var(--grisTexto);
+
+    padding:30px 0;
 
 }
 

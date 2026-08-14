@@ -12,53 +12,21 @@
 
         <div class="categorias-grid">
 
-            <a href="/productos?categoria=Frutas" class="categoria-card">
+            {{#each categorias}}
 
-                <img src="/img/categorias/frutas.png" alt="Frutas">
+                <a href="/productos?categoria={{id}}" class="categoria-card">
 
-                <h3>Frutas</h3>
+                    <span class="categoria-icono">{{icono}}</span>
 
-            </a>
+                    <h3>{{nombre}}</h3>
 
-            <a href="/productos?categoria=Verduras" class="categoria-card">
+                </a>
 
-                <img src="/img/categorias/verduras.png" alt="Verduras">
+            {{else}}
 
-                <h3>Verduras</h3>
+                <p class="categorias-vacio">Aún no hay categorías disponibles.</p>
 
-            </a>
-
-            <a href="/productos?categoria=Bebidas" class="categoria-card">
-
-                <img src="/img/categorias/bebidas.png" alt="Bebidas">
-
-                <h3>Bebidas</h3>
-
-            </a>
-
-            <a href="/productos?categoria=Panaderia" class="categoria-card">
-
-                <img src="/img/categorias/pan.png" alt="Panadería">
-
-                <h3>Panadería</h3>
-
-            </a>
-
-            <a href="/productos?categoria=Limpieza" class="categoria-card">
-
-                <img src="/img/categorias/limpieza.png" alt="Limpieza">
-
-                <h3>Limpieza</h3>
-
-            </a>
-
-            <a href="/productos?categoria=Lacteos" class="categoria-card">
-
-                <img src="/img/categorias/lacteos.png" alt="Lácteos">
-
-                <h3>Lácteos</h3>
-
-            </a>
+            {{/each}}
 
         </div>
 

@@ -8,9 +8,13 @@ const http = require("http");
 
 // Base de datos
 const conectarDB = require("./db");
+const categoriaModel = require("./models/categoriaModel");
 
 // Socket.IO
 const { inicializarSocket } = require("./helpers/socket");
+
+// Helpers
+const { obtenerIcono } = require("./helpers/categoriaIconos");
 
 // Middlewares
 const flashMiddleware = require("./middleware/flashMiddleware");
@@ -104,11 +108,32 @@ app.use("/admin/usuarios", adminUsuarioRoutes);
 // Ruta Principal
 // ======================================
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
 
-    res.render("home", {
-        titulo: "MarketGo"
-    });
+    try {
+
+        const categoriasDb = await categoriaModel.obtenerCategorias();
+
+        const categorias = categoriasDb.map(categoria => ({
+            ...categoria,
+            icono: obtenerIcono(categoria.nombre)
+        }));
+
+        res.render("home", {
+            titulo: "MarketGo",
+            categorias
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.render("home", {
+            titulo: "MarketGo",
+            categorias: []
+        });
+
+    }
 
 });
 
