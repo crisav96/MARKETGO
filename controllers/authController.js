@@ -27,7 +27,10 @@ const registrar = async (req, res) => {
 
         const { nombre, correo, password } = req.body;
 
-        if (correo.toLowerCase() === process.env.ADMIN_USUARIO.toLowerCase()) {
+        const correoNormalizado = correo?.toLowerCase() || "";
+        const correoAdmin = (process.env.ADMIN_USUARIO || "").toLowerCase();
+
+        if (correoAdmin && correoNormalizado === correoAdmin) {
 
             setFlash(req, "error", "Ese correo no está disponible.");
 
