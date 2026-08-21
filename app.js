@@ -40,7 +40,19 @@ const app = express();
 // Conexión a la Base de Datos
 // ======================================
 
-conectarDB();
+(async () => {
+
+    const connection = await conectarDB();
+
+    if (connection) {
+
+        console.log("✅ Conectado correctamente a MySQL");
+
+        connection.end();
+
+    }
+
+})();
 
 // ======================================
 // Middleware de Express
