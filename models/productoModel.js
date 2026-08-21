@@ -218,6 +218,25 @@ async function actualizarProducto(id, { nombre, descripcion, precio, precioOfert
 }
 
 // ===========================
+// ACTUALIZAR OFERTA (ADMIN)
+// ===========================
+
+async function actualizarOferta(id, { precioOferta, ofertaActiva }) {
+
+    const connection = await conectarDB();
+
+    await connection.execute(
+        `UPDATE productos
+         SET precio_oferta = ?, oferta_activa = ?
+         WHERE id = ?`,
+        [precioOferta, ofertaActiva, id]
+    );
+
+    await connection.end();
+
+}
+
+// ===========================
 // ELIMINAR PRODUCTO
 // ===========================
 
@@ -321,6 +340,7 @@ module.exports = {
     eliminarProducto,
     contarProductosPorCategoria,
     obtenerProductosCatalogo,
-    obtenerOfertas
+    obtenerOfertas,
+    actualizarOferta
 
 };

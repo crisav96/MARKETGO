@@ -562,6 +562,74 @@
 
 }
 
+/* ===== Fila de oferta (formulario en línea) ===== */
+
+.oferta-form{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+}
+
+.oferta-form input[type="number"]{
+
+    width:150px;
+
+    padding:8px 12px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+    font-family:inherit;
+
+    font-size:14px;
+
+    outline:none;
+
+}
+
+.oferta-form input[type="number"]:focus{
+
+    border-color:var(--verde);
+
+}
+
+.oferta-toggle{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    font-size:14px;
+
+    color:var(--grisTexto);
+
+    white-space:nowrap;
+
+    cursor:pointer;
+
+}
+
+.oferta-toggle input{
+
+    width:16px;
+
+    height:16px;
+
+    accent-color:var(--verde);
+
+    cursor:pointer;
+
+}
+
 /* ===== Formulario de producto ===== */
 
 .admin-panel-form{

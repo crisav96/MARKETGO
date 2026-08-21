@@ -1,0 +1,106 @@
+<div class="admin-cabecera">
+
+    <h1><i class="bi bi-percent"></i> Ofertas</h1>
+
+    <p>Activa un precio de oferta por producto. Se muestra en el catálogo, el detalle y el home.</p>
+
+</div>
+
+<div class="admin-panel">
+
+    <div class="admin-toolbar">
+
+        <form method="GET" action="/admin/ofertas" class="admin-filtros">
+
+            <input
+                type="text"
+                name="buscar"
+                placeholder="Buscar producto..."
+                value="{{buscar}}">
+
+            <button type="submit" class="btn-admin-secundario">
+                <i class="bi bi-search"></i> Buscar
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="admin-tabla-wrap">
+
+        <table class="admin-tabla">
+
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Precio de oferta</th>
+                    <th>Activa</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {{#each productos}}
+
+                    <tr>
+
+                        <td>
+                            <img
+                                class="admin-tabla-img"
+                                src="/img/productos/{{imagen}}"
+                                alt="{{nombre}}"
+                                onerror="this.onerror=null; this.src='/img/productos/default.png';">
+                        </td>
+
+                        <td>{{nombre}}</td>
+
+                        <td>₡{{precio}}</td>
+
+                        <td colspan="3">
+
+                            <form action="/admin/ofertas/{{id}}" method="POST" class="oferta-form">
+
+                                <input
+                                    type="number"
+                                    name="precioOferta"
+                                    step="0.01"
+                                    min="0.01"
+                                    placeholder="Precio de oferta"
+                                    value="{{precioOferta}}">
+
+                                <label class="oferta-toggle">
+                                    <input type="checkbox" name="ofertaActiva" {{#if ofertaActiva}}checked{{/if}}>
+                                    Activa
+                                </label>
+
+                                <button type="submit" class="btn-admin btn-admin-sm">
+                                    <i class="bi bi-check-lg"></i>
+                                    Guardar
+                                </button>
+
+                            </form>
+
+                        </td>
+
+                    </tr>
+
+                {{else}}
+
+                    <tr>
+                        <td colspan="6" class="admin-tabla-vacia">
+                            No se encontraron productos.
+                        </td>
+                    </tr>
+
+                {{/each}}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
