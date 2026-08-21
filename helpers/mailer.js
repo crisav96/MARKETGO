@@ -15,6 +15,21 @@ const transporter = nodemailer.createTransport({
 });
 
 // ===========================
+// ESCAPAR HTML (evita inyectar markup en los correos)
+// ===========================
+
+function escaparHtml(texto) {
+
+    return String(texto)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+// ===========================
 // PLANTILLA HTML
 // ===========================
 
@@ -77,6 +92,55 @@ async function enviarCorreoCambioEstado({ correo, nombreCliente, ordenId, estado
 
 }
 
+// ===========================
+// PLANTILLA CONTACTO
+// ===========================
+
+function plantillaContacto({ nombre, correo, mensaje }) {
+
+    return `
+        <div style="font-family:Arial, sans-serif; background:#f5f5f5; padding:30px;">
+            <div style="max-width:480px; margin:0 auto; background:#ffffff; border-radius:12px; overflow:hidden; box-shadow:0 3px 15px rgba(0,0,0,.08);">
+
+                <div style="background:#2E7D32; padding:24px; text-align:center;">
+                    <h1 style="color:#ffffff; margin:0; font-size:22px;">Nuevo mensaje de contacto</h1>
+                </div>
+
+                <div style="padding:30px;">
+
+                    <p style="font-size:15px; color:#333;"><strong>Nombre:</strong> ${escaparHtml(nombre)}</p>
+
+                    <p style="font-size:15px; color:#333;"><strong>Correo:</strong> ${escaparHtml(correo)}</p>
+
+                    <p style="font-size:15px; color:#333; margin-top:16px;"><strong>Mensaje:</strong></p>
+
+                    <p style="font-size:15px; color:#333; white-space:pre-line;">${escaparHtml(mensaje)}</p>
+
+                </div>
+
+            </div>
+        </div>
+    `;
+
+}
+
+// ===========================
+// ENVIAR MENSAJE DE CONTACTO
+// ===========================
+
+async function enviarCorreoContacto({ nombre, correo, mensaje }) {
+
+    await transporter.sendMail({
+        from: `"MarketGo" <${process.env.GMAIL_USUARIO}>`,
+        to: process.env.GMAIL_USUARIO,
+        replyTo: correo,
+        subject: `Nuevo mensaje de contacto de ${nombre}`,
+        html: plantillaContacto({ nombre, correo, mensaje })
+    });
+
+}
+
 module.exports = {
-    enviarCorreoCambioEstado
+    enviarCorreoCambioEstado,
+    enviarCorreoContacto
 };

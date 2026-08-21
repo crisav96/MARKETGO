@@ -30,6 +30,7 @@ const adminProductoRoutes = require("./routes/adminProductoRoutes");
 const adminCategoriaRoutes = require("./routes/adminCategoriaRoutes");
 const adminOrdenRoutes = require("./routes/adminOrdenRoutes");
 const adminUsuarioRoutes = require("./routes/adminUsuarioRoutes");
+const contactoRoutes = require("./routes/contactoRoutes");
 
 const app = express();
 
@@ -103,6 +104,7 @@ app.use("/admin/productos", adminProductoRoutes);
 app.use("/admin/categorias", adminCategoriaRoutes);
 app.use("/admin/ordenes", adminOrdenRoutes);
 app.use("/admin/usuarios", adminUsuarioRoutes);
+app.use("/contacto", contactoRoutes);
 
 // ======================================
 // Ruta Principal
@@ -138,26 +140,10 @@ app.get("/", async (req, res) => {
 });
 
 // Secciones aún no construidas
-app.get("/categorias", (req, res) => {
-
-    res.render("mantenimiento", {
-        titulo: "Categorías"
-    });
-
-});
-
 app.get("/ofertas", (req, res) => {
 
     res.render("mantenimiento", {
         titulo: "Ofertas"
-    });
-
-});
-
-app.get("/contacto", (req, res) => {
-
-    res.render("mantenimiento", {
-        titulo: "Contacto"
     });
 
 });

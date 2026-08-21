@@ -1,0 +1,279 @@
+/* =====================================================
+   MARKETGO
+   CONTACTO.CSS
+===================================================== */
+
+.contacto{
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+    padding:50px 30px 80px;
+
+}
+
+.contacto-cabecera{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.contacto-cabecera h2{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    color:var(--verde);
+
+    font-size:32px;
+
+}
+
+.contacto-cabecera p{
+
+    color:var(--grisTexto);
+
+    margin-top:10px;
+
+}
+
+.contacto-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1.2fr;
+
+    gap:40px;
+
+    align-items:start;
+
+}
+
+/* ===== Información ===== */
+
+.contacto-info{
+
+    background:var(--blanco);
+
+    border-radius:var(--radio);
+
+    box-shadow:var(--sombraSuave);
+
+    padding:35px;
+
+}
+
+.contacto-persona{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding-bottom:24px;
+
+    margin-bottom:24px;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.contacto-avatar{
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:50%;
+
+    background:var(--verde);
+
+    color:var(--blanco);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:28px;
+
+    flex-shrink:0;
+
+}
+
+.contacto-persona h3{
+
+    color:var(--grisOscuro);
+
+    margin-bottom:4px;
+
+}
+
+.contacto-persona span{
+
+    color:var(--grisTexto);
+
+    font-size:14px;
+
+}
+
+.contacto-datos{
+
+    list-style:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    margin-bottom:28px;
+
+}
+
+.contacto-datos li{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:14px;
+
+    color:var(--grisTexto);
+
+    font-size:15px;
+
+    line-height:1.5;
+
+}
+
+.contacto-datos i{
+
+    color:var(--verde);
+
+    font-size:18px;
+
+    margin-top:2px;
+
+}
+
+.contacto-social{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.contacto-social a{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:var(--gris);
+
+    color:var(--verde);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:18px;
+
+    transition:var(--transicion);
+
+}
+
+.contacto-social a:hover{
+
+    background:var(--verde);
+
+    color:var(--blanco);
+
+}
+
+/* ===== Formulario ===== */
+
+.contacto-grid .contacto-form{
+
+    max-width:none;
+
+    margin:0;
+
+    padding:35px;
+
+}
+
+.contacto-form textarea{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-family:inherit;
+
+    font-size:15px;
+
+    resize:vertical;
+
+    transition:var(--transicion);
+
+}
+
+.contacto-form textarea:focus{
+
+    border-color:var(--verde);
+
+    box-shadow:0 0 0 3px rgba(46,125,50,.15);
+
+}
+
+/* ===== Responsive ===== */
+
+@media(max-width:900px){
+
+    .contacto-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .contacto{
+
+        padding:30px 16px 50px;
+
+    }
+
+    .contacto-info,
+    .contacto-grid .contacto-form{
+
+        padding:24px;
+
+    }
+
+}
