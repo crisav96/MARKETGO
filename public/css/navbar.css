@@ -99,16 +99,46 @@
 
 .navbar-info{
 
-    display:flex;
+    overflow:hidden;
 
-    align-items:center;
-
-    gap:8px;
+    width:320px;
 
     color:white;
 
     font-size:15px;
 
     font-weight:500;
+
+}
+
+.navbar-info-track{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    width:max-content;
+
+    white-space:nowrap;
+
+    animation:navbar-info-marquee 10s linear infinite;
+
+}
+
+@keyframes navbar-info-marquee{
+
+    from{
+
+        transform:translateX(100%);
+
+    }
+
+    to{
+
+        transform:translateX(-100%);
+
+    }
 
 }
