@@ -6,11 +6,12 @@ const transporter = nodemailer.createTransport({
         user: process.env.GMAIL_USUARIO,
         pass: process.env.GMAIL_APP_PASSWORD
     },
-    // Esta máquina intercepta/inspecciona el tráfico HTTPS (típico de un antivirus)
-    // y rompe la verificación normal del certificado de Gmail. Sin esto, ni con
-    // credenciales correctas se logra conectar. Ver README para más detalle.
+    // Mismo criterio que db.js: la ausencia de DB_HOST indica que estamos en local,
+    // donde el antivirus intercepta el tráfico HTTPS y rompe la verificación del
+    // certificado de Gmail. En producción (Render, donde DB_HOST sí existe) el
+    // certificado se valida normalmente.
     tls: {
-        rejectUnauthorized: false
+        rejectUnauthorized: !!process.env.DB_HOST
     }
 });
 

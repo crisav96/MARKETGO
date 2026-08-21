@@ -32,24 +32,42 @@ export function renderizarCarrito(carrito) {
 }
 
 // ===========================
+// ESCAPAR HTML (el nombre/categoría vienen del admin, no deben inyectar markup)
+// ===========================
+
+function escaparHtml(texto) {
+
+    return String(texto)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+// ===========================
 // PLANTILLA DE UN ITEM
 // ===========================
 
 function plantillaItem(producto) {
+
+    const nombre = escaparHtml(producto.nombre);
+    const categoria = escaparHtml(producto.categoria);
 
     return `
         <div class="item-carrito" data-id="${producto.id}">
 
             <img
                 src="/img/productos/${producto.imagen}"
-                alt="${producto.nombre}"
+                alt="${nombre}"
                 onerror="this.onerror=null; this.src='/img/productos/default.png';">
 
             <div class="item-info">
 
-                <h4>${producto.nombre}</h4>
+                <h4>${nombre}</h4>
 
-                <small>${producto.categoria}</small>
+                <small>${categoria}</small>
 
                 <strong>${formatearMoneda(producto.precio)}</strong>
 
