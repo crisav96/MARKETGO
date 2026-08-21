@@ -25,7 +25,15 @@ const registrar = async (req, res) => {
 
     try {
 
-        const { nombre, correo, password } = req.body;
+        const { nombre, correo, password, confirmarPassword } = req.body;
+
+        if (password !== confirmarPassword) {
+
+            setFlash(req, "error", "Las contraseñas no coinciden.");
+
+            return res.redirect("/auth/registro");
+
+        }
 
         const correoNormalizado = correo?.toLowerCase() || "";
         const correoAdmin = (process.env.ADMIN_USUARIO || "").toLowerCase();
