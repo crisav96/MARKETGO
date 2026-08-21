@@ -18,6 +18,13 @@
 
 }
 
+/* Páginas sin sidebar de filtros (ej. Ofertas): una sola columna a todo el ancho */
+.catalogo-sin-sidebar{
+
+    grid-template-columns:1fr;
+
+}
+
 /* =====================================================
    SIDEBAR
 ===================================================== */
