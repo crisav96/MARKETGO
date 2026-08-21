@@ -17,9 +17,9 @@
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
 
-    gap:30px;
+    gap:20px;
 
 }
 
@@ -137,7 +137,7 @@
 
 .producto-imagen{
 
-    height:120px;
+    height:95px;
 
     display:flex;
 
@@ -145,7 +145,7 @@
 
     align-items:center;
 
-    padding:15px;
+    padding:12px;
 
     overflow:hidden;
 
@@ -153,9 +153,9 @@
 
 .producto-imagen img{
 
-    width:100px;
+    width:80px;
 
-    height:100px;
+    height:80px;
 
     object-fit:contain;
 
@@ -197,7 +197,7 @@
 
 .producto-info{
 
-    padding:25px;
+    padding:18px;
 
     display:flex;
 
@@ -209,7 +209,7 @@
 
 .producto-categoria{
 
-    font-size:13px;
+    font-size:12px;
 
     text-transform:uppercase;
 
@@ -217,19 +217,19 @@
 
     letter-spacing:.5px;
 
-    margin-bottom:8px;
+    margin-bottom:6px;
 
 }
 
 .producto-info h3{
 
-    font-size:22px;
+    font-size:18px;
 
     color:var(--grisOscuro);
 
-    margin-bottom:12px;
+    margin-bottom:10px;
 
-    min-height:55px;
+    min-height:44px;
 
 }
 
@@ -250,9 +250,9 @@
 
     color:#FFC107;
 
-    font-size:15px;
+    font-size:13px;
 
-    margin-bottom:15px;
+    margin-bottom:10px;
 
 }
 
@@ -274,15 +274,15 @@
 
     align-items:center;
 
-    gap:10px;
+    gap:8px;
 
-    margin-bottom:22px;
+    margin-bottom:16px;
 
 }
 
 .precio-actual{
 
-    font-size:30px;
+    font-size:24px;
 
     font-weight:700;
 
@@ -296,7 +296,7 @@
 
     text-decoration:line-through;
 
-    font-size:16px;
+    font-size:14px;
 
 }
 
@@ -314,13 +314,13 @@
 
     border-radius:12px;
 
-    padding:14px;
+    padding:11px;
 
     background:var(--verde);
 
     color:white;
 
-    font-size:16px;
+    font-size:14px;
 
     font-weight:600;
 
@@ -518,15 +518,15 @@
 
     .producto-imagen{
 
-        height:190px;
+        height:150px;
 
     }
 
     .producto-imagen img{
 
-        width:150px;
+        width:120px;
 
-        height:150px;
+        height:120px;
 
     }
 
