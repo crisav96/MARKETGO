@@ -35,6 +35,14 @@ const registrar = async (req, res) => {
 
         }
 
+        if (!password || password.length < 6) {
+
+            setFlash(req, "error", "La contraseña debe tener al menos 6 caracteres.");
+
+            return res.redirect("/auth/registro");
+
+        }
+
         const correoNormalizado = correo?.toLowerCase() || "";
         const correoAdmin = (process.env.ADMIN_USUARIO || "").toLowerCase();
 

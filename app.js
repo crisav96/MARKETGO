@@ -56,10 +56,24 @@ app.use(express.static(path.join(__dirname, "public")));
 // Sesiones
 // ======================================
 
+// Necesario para que cookie.secure funcione en Render: el proxy termina el
+// HTTPS y reenvía por HTTP interno, así que Express debe confiar en el
+// header X-Forwarded-Proto para saber que la conexión real fue segura.
+app.set("trust proxy", 1);
+
 const sessionMiddleware = session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    cookie: {
+        httpOnly: true,
+        // sameSite:"lax" evita que la cookie de sesión se mande en un POST
+        // disparado desde otro sitio (CSRF clásico vía <form> ajeno).
+        sameSite: "lax",
+        // Igual que el resto del proyecto: DB_HOST presente = producción (Render,
+        // detrás de HTTPS), ausente = local (http://localhost).
+        secure: !!process.env.DB_HOST
+    }
 });
 
 app.use(sessionMiddleware);
