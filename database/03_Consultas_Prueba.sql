@@ -142,22 +142,6 @@ FROM ordenes;
 SELECT *
 FROM orden_detalle;
 
--- =====================================================
--- CONSULTA 14
--- Mostrar carrito (cuando exista)
--- =====================================================
-
-SELECT *
-FROM carrito;
-
--- =====================================================
--- CONSULTA 15
--- Mostrar detalle del carrito (cuando exista)
--- =====================================================
-
-SELECT *
-FROM carrito_detalle;
-
 SELECT id, nombre, correo, password
 FROM usuarios;
 

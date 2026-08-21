@@ -3,6 +3,7 @@ const rateLimit = require("express-rate-limit");
 const router = express.Router();
 
 const authController = require("../controllers/authController");
+const setFlash = require("../helpers/flashHelper");
 
 // Máximo 10 intentos de login por IP cada 15 min, para frenar fuerza bruta
 // contra cuentas de usuario y contra el usuario/contraseña fijos del admin.
@@ -11,7 +12,13 @@ const limitadorLogin = rateLimit({
     limit: 10,
     standardHeaders: true,
     legacyHeaders: false,
-    message: "Demasiados intentos de inicio de sesión. Intenta de nuevo en unos minutos."
+    handler: (req, res) => {
+
+        setFlash(req, "error", "Demasiados intentos de inicio de sesión. Intenta de nuevo en unos minutos.");
+
+        res.redirect("/auth/login");
+
+    }
 });
 
 router.get("/login", authController.mostrarLogin);

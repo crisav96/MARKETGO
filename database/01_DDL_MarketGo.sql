@@ -50,40 +50,6 @@ CREATE TABLE productos (
 
 );
 
-CREATE TABLE carrito (
-
-    id INT AUTO_INCREMENT PRIMARY KEY,
-
-    usuario_id INT NOT NULL,
-
-    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-
-    FOREIGN KEY (usuario_id)
-
-        REFERENCES usuarios(id)
-
-);
-
-CREATE TABLE carrito_detalle (
-
-    id INT AUTO_INCREMENT PRIMARY KEY,
-
-    carrito_id INT NOT NULL,
-
-    producto_id INT NOT NULL,
-
-    cantidad INT NOT NULL,
-
-    FOREIGN KEY (carrito_id)
-
-        REFERENCES carrito(id),
-
-    FOREIGN KEY (producto_id)
-
-        REFERENCES productos(id)
-
-);
-
 CREATE TABLE ordenes (
 
     id INT AUTO_INCREMENT PRIMARY KEY,
