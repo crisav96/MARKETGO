@@ -102,3 +102,19 @@ WHERE id = 4;
 UPDATE productos
 SET imagen = 'lechuga.png'
 WHERE id = 5;
+
+UPDATE productos
+SET precio_oferta = 0.60, oferta_activa = TRUE
+WHERE id = 1;
+
+UPDATE productos
+SET precio_oferta = 0.30, oferta_activa = TRUE
+WHERE id = 2;
+
+UPDATE productos
+SET precio_oferta = 0.80, oferta_activa = TRUE
+WHERE id = 3;
+
+UPDATE productos
+SET precio_oferta = 0.85, oferta_activa = TRUE
+WHERE id = 4;

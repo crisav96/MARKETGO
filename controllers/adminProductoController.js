@@ -44,7 +44,7 @@ async function eliminarImagen(nombreArchivo) {
 // VALIDAR CAMPOS DEL FORMULARIO
 // ===========================
 
-function validarDatos({ nombre, categoriaId, precio, stock }) {
+function validarDatos({ nombre, categoriaId, precio, precioOferta, stock }) {
 
     if (!nombre || !nombre.trim() || !categoriaId) {
 
@@ -58,6 +58,12 @@ function validarDatos({ nombre, categoriaId, precio, stock }) {
     if (!(precioNumero > 0)) {
 
         return "El precio debe ser mayor a cero.";
+
+    }
+
+    if (precioOferta !== undefined && precioOferta !== "" && !(Number(precioOferta) > 0 && Number(precioOferta) < precioNumero)) {
+
+        return "El precio de oferta debe ser menor que el precio normal.";
 
     }
 
@@ -144,9 +150,9 @@ const crear = async (req, res) => {
 
     try {
 
-        const { nombre, descripcion, precio, stock, categoriaId } = req.body;
+        const { nombre, descripcion, precio, precioOferta, stock, categoriaId } = req.body;
 
-        const errorValidacion = validarDatos({ nombre, categoriaId, precio, stock });
+        const errorValidacion = validarDatos({ nombre, categoriaId, precio, precioOferta, stock });
 
         if (errorValidacion) {
 
@@ -160,6 +166,7 @@ const crear = async (req, res) => {
             nombre: nombre.trim(),
             descripcion: (descripcion || "").trim(),
             precio: Number(precio),
+            precioOferta: precioOferta ? Number(precioOferta) : null,
             stock: Number(stock),
             categoriaId,
             imagen: req.file ? req.file.filename : null
@@ -231,9 +238,9 @@ const actualizar = async (req, res) => {
 
     try {
 
-        const { nombre, descripcion, precio, stock, categoriaId } = req.body;
+        const { nombre, descripcion, precio, precioOferta, stock, categoriaId } = req.body;
 
-        const errorValidacion = validarDatos({ nombre, categoriaId, precio, stock });
+        const errorValidacion = validarDatos({ nombre, categoriaId, precio, precioOferta, stock });
 
         if (errorValidacion) {
 
@@ -257,6 +264,7 @@ const actualizar = async (req, res) => {
             nombre: nombre.trim(),
             descripcion: (descripcion || "").trim(),
             precio: Number(precio),
+            precioOferta: precioOferta ? Number(precioOferta) : null,
             stock: Number(stock),
             categoriaId,
             imagen: req.file ? req.file.filename : null

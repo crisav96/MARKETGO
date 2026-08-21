@@ -24,7 +24,8 @@ async function crearOrden(usuarioId, datosOrden, items) {
         for (const item of items) {
 
             const [filas] = await connection.execute(
-                `SELECT id, nombre, precio, stock
+                `SELECT id, nombre, precio, precio_oferta AS precioOferta,
+                        oferta_activa AS ofertaActiva, stock
                  FROM productos
                  WHERE id = ?
                  FOR UPDATE`,
@@ -47,10 +48,18 @@ async function crearOrden(usuarioId, datosOrden, items) {
                 throw new Error(`Stock insuficiente para ${producto.nombre}.`);
             }
 
+            // Misma regla que productoModel.obtenerOfertas: solo se respeta el precio de
+            // oferta si está activa, tiene valor y es menor al precio normal.
+            const hayOfertaValida = producto.ofertaActiva
+                && producto.precioOferta !== null
+                && Number(producto.precioOferta) < Number(producto.precio);
+
+            const precioFinal = hayOfertaValida ? producto.precioOferta : producto.precio;
+
             detalles.push({
                 productoId: producto.id,
                 cantidad,
-                precio: producto.precio
+                precio: precioFinal
             });
 
         }

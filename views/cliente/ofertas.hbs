@@ -1,0 +1,45 @@
+<section class="catalogo">
+
+    <section class="catalogo-contenido">
+
+        <div class="catalogo-header">
+
+            <div>
+
+                <h2>Ofertas</h2>
+
+                <p>Descubre todos los productos con precios especiales.</p>
+
+            </div>
+
+            <div class="catalogo-resumen">
+
+                <span>{{ofertas.length}} ofertas disponibles</span>
+
+            </div>
+
+        </div>
+
+        <div class="productos-grid">
+
+            {{#each ofertas}}
+
+                {{> tarjetaProducto}}
+
+            {{else}}
+
+                <div class="sin-productos">
+
+                    <i class="bi bi-tag"></i>
+                    <h3>No hay ofertas disponibles</h3>
+                    <p>Vuelve pronto para descubrir nuevos descuentos.</p>
+
+                </div>
+
+            {{/each}}
+
+        </div>
+
+    </section>
+
+</section>

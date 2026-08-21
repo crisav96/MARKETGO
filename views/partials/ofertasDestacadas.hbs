@@ -1,0 +1,35 @@
+<section class="destacados">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Productos en oferta</h2>
+
+            <p>Aprovecha estos precios especiales</p>
+
+        </div>
+
+        <div class="productos-grid">
+
+            {{#each ofertas}}
+
+                {{> tarjetaProducto}}
+
+            {{else}}
+
+                <p>No hay ofertas disponibles en este momento.</p>
+
+            {{/each}}
+
+        </div>
+
+        <div class="section-accion">
+
+            <a href="/ofertas" class="btn">Ver todas las ofertas</a>
+
+        </div>
+
+    </div>
+
+</section>

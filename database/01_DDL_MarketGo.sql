@@ -36,6 +36,10 @@ CREATE TABLE productos (
 
     precio DECIMAL(10,2) NOT NULL,
 
+    precio_oferta DECIMAL(10,2) NULL,
+
+    oferta_activa BOOLEAN NOT NULL DEFAULT FALSE,
+
     stock INT NOT NULL,
 
     imagen VARCHAR(255),

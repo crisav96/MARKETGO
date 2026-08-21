@@ -9,6 +9,7 @@ const http = require("http");
 // Base de datos
 const conectarDB = require("./db");
 const categoriaModel = require("./models/categoriaModel");
+const productoModel = require("./models/productoModel");
 
 // Socket.IO
 const { inicializarSocket } = require("./helpers/socket");
@@ -112,39 +113,58 @@ app.use("/contacto", contactoRoutes);
 
 app.get("/", async (req, res) => {
 
-    try {
+    const [categoriasResultado, ofertasResultado] = await Promise.allSettled([
+        categoriaModel.obtenerCategorias(),
+        productoModel.obtenerOfertas(4)
+    ]);
 
-        const categoriasDb = await categoriaModel.obtenerCategorias();
+    if (categoriasResultado.status === "rejected") {
+        console.error(categoriasResultado.reason);
+    }
 
-        const categorias = categoriasDb.map(categoria => ({
+    if (ofertasResultado.status === "rejected") {
+        console.error(ofertasResultado.reason);
+    }
+
+    const categorias = categoriasResultado.status === "fulfilled"
+        ? categoriasResultado.value.map(categoria => ({
             ...categoria,
             icono: obtenerIcono(categoria.nombre)
-        }));
+        }))
+        : [];
 
-        res.render("home", {
-            titulo: "MarketGo",
-            categorias
+    const ofertas = ofertasResultado.status === "fulfilled" ? ofertasResultado.value : [];
+
+    res.render("home", {
+        titulo: "MarketGo",
+        categorias,
+        ofertas
+    });
+
+});
+
+// Secciones aún no construidas
+app.get("/ofertas", async (req, res) => {
+
+    try {
+
+        const ofertas = await productoModel.obtenerOfertas();
+
+        res.render("cliente/ofertas", {
+            titulo: "Ofertas",
+            ofertas
         });
 
     } catch (error) {
 
         console.error(error);
 
-        res.render("home", {
-            titulo: "MarketGo",
-            categorias: []
+        res.render("cliente/ofertas", {
+            titulo: "Ofertas",
+            ofertas: []
         });
 
     }
-
-});
-
-// Secciones aún no construidas
-app.get("/ofertas", (req, res) => {
-
-    res.render("mantenimiento", {
-        titulo: "Ofertas"
-    });
 
 });
 

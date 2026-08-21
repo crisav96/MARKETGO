@@ -2,7 +2,7 @@
 
     <span class="producto-badge">
 
-        Nuevo
+        {{#if ofertaActiva}}Oferta{{else}}Nuevo{{/if}}
 
     </span>
 
@@ -61,11 +61,17 @@
 
         <div class="producto-precio">
 
-            <span class="precio-actual">
+            {{#if ofertaActiva}}
 
-                ₡{{precio}}
+                <span class="precio-anterior">₡{{precio}}</span>
 
-            </span>
+                <span class="precio-actual">₡{{precioOferta}}</span>
+
+            {{else}}
+
+                <span class="precio-actual">₡{{precio}}</span>
+
+            {{/if}}
 
         </div>
 
@@ -76,7 +82,7 @@
 
             data-nombre="{{nombre}}"
 
-            data-precio="{{precio}}"
+            data-precio="{{#if ofertaActiva}}{{precioOferta}}{{else}}{{precio}}{{/if}}"
 
             data-imagen="{{imagen}}"
 

@@ -10,6 +10,8 @@ async function obtenerProductos() {
             p.nombre,
             p.descripcion,
             p.precio,
+            p.precio_oferta AS precioOferta,
+            p.oferta_activa AS ofertaActiva,
             p.stock,
             p.imagen,
             c.nombre AS categoria
@@ -27,6 +29,36 @@ async function obtenerProductos() {
 
 }
 
+async function obtenerOfertas(limite = null) {
+
+    const connection = await conectarDB();
+
+    // mysql2 no soporta "LIMIT ?" como parámetro preparado (ver ordenModel.obtenerUltimasOrdenes
+    // para el mismo caso), así que se valida como entero seguro y se interpola directo.
+    const limiteSeguro = Number.isInteger(limite) && limite > 0 ? limite : null;
+    const limiteSQL = limiteSeguro ? `LIMIT ${limiteSeguro}` : "";
+
+    const [filas] = await connection.execute(
+        `SELECT p.id, p.nombre, p.descripcion, p.precio,
+                p.precio_oferta AS precioOferta,
+                p.oferta_activa AS ofertaActiva,
+                p.stock, p.imagen, c.nombre AS categoria
+         FROM productos p
+         INNER JOIN categorias c ON p.categoria_id = c.id
+         WHERE p.oferta_activa = TRUE
+           AND p.precio_oferta IS NOT NULL
+           AND p.precio_oferta < p.precio
+           AND p.stock > 0
+         ORDER BY (p.precio - p.precio_oferta) DESC, p.nombre
+         ${limiteSQL}`
+    );
+
+    await connection.end();
+
+    return filas;
+
+}
+
 // ===========================
 // DETALLE DE UN PRODUCTO (CLIENTE)
 // ===========================
@@ -36,7 +68,10 @@ async function obtenerProductoDetalle(id) {
     const connection = await conectarDB();
 
     const [filas] = await connection.execute(
-        `SELECT p.id, p.nombre, p.descripcion, p.precio, p.stock, p.imagen, c.nombre AS categoria
+        `SELECT p.id, p.nombre, p.descripcion, p.precio,
+            p.precio_oferta AS precioOferta,
+            p.oferta_activa AS ofertaActiva,
+            p.stock, p.imagen, c.nombre AS categoria
          FROM productos p
          INNER JOIN categorias c ON p.categoria_id = c.id
          WHERE p.id = ?`,
@@ -92,7 +127,8 @@ async function obtenerProductosAdmin({ buscar, categoriaId } = {}) {
 
     const [filas] = await connection.execute(
         `SELECT
-            p.id, p.nombre, p.descripcion, p.precio, p.stock, p.imagen, p.categoria_id,
+            p.id, p.nombre, p.descripcion, p.precio, p.precio_oferta AS precioOferta,
+            p.oferta_activa AS ofertaActiva, p.stock, p.imagen, p.categoria_id,
             c.nombre AS categoria
          FROM productos p
          INNER JOIN categorias c ON p.categoria_id = c.id
@@ -116,7 +152,8 @@ async function obtenerProductoPorId(id) {
     const connection = await conectarDB();
 
     const [filas] = await connection.execute(
-        `SELECT id, nombre, descripcion, precio, stock, imagen, categoria_id
+        `SELECT id, nombre, descripcion, precio, precio_oferta AS precioOferta,
+            oferta_activa AS ofertaActiva, stock, imagen, categoria_id
          FROM productos
          WHERE id = ?`,
         [id]
@@ -132,14 +169,14 @@ async function obtenerProductoPorId(id) {
 // CREAR PRODUCTO
 // ===========================
 
-async function crearProducto({ nombre, descripcion, precio, stock, categoriaId, imagen }) {
+async function crearProducto({ nombre, descripcion, precio, precioOferta, stock, categoriaId, imagen }) {
 
     const connection = await conectarDB();
 
     const [resultado] = await connection.execute(
-        `INSERT INTO productos (categoria_id, nombre, descripcion, precio, stock, imagen)
-         VALUES (?, ?, ?, ?, ?, ?)`,
-        [categoriaId, nombre, descripcion, precio, stock, imagen]
+        `INSERT INTO productos (categoria_id, nombre, descripcion, precio, precio_oferta, oferta_activa, stock, imagen)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+        [categoriaId, nombre, descripcion, precio, precioOferta, precioOferta !== null, stock, imagen]
     );
 
     await connection.end();
@@ -152,7 +189,7 @@ async function crearProducto({ nombre, descripcion, precio, stock, categoriaId, 
 // ACTUALIZAR PRODUCTO
 // ===========================
 
-async function actualizarProducto(id, { nombre, descripcion, precio, stock, categoriaId, imagen }) {
+async function actualizarProducto(id, { nombre, descripcion, precio, precioOferta, stock, categoriaId, imagen }) {
 
     const connection = await conectarDB();
 
@@ -160,18 +197,18 @@ async function actualizarProducto(id, { nombre, descripcion, precio, stock, cate
 
         await connection.execute(
             `UPDATE productos
-             SET categoria_id = ?, nombre = ?, descripcion = ?, precio = ?, stock = ?, imagen = ?
+            SET categoria_id = ?, nombre = ?, descripcion = ?, precio = ?, precio_oferta = ?, oferta_activa = ?, stock = ?, imagen = ?
              WHERE id = ?`,
-            [categoriaId, nombre, descripcion, precio, stock, imagen, id]
+            [categoriaId, nombre, descripcion, precio, precioOferta, precioOferta !== null, stock, imagen, id]
         );
 
     } else {
 
         await connection.execute(
             `UPDATE productos
-             SET categoria_id = ?, nombre = ?, descripcion = ?, precio = ?, stock = ?
+            SET categoria_id = ?, nombre = ?, descripcion = ?, precio = ?, precio_oferta = ?, oferta_activa = ?, stock = ?
              WHERE id = ?`,
-            [categoriaId, nombre, descripcion, precio, stock, id]
+            [categoriaId, nombre, descripcion, precio, precioOferta, precioOferta !== null, stock, id]
         );
 
     }
@@ -255,7 +292,10 @@ async function obtenerProductosCatalogo({ buscar, categorias, precioMax, orden }
     const ordenSQL = ORDENES_VALIDOS[orden] || ORDENES_VALIDOS.nombre;
 
     const [filas] = await connection.execute(
-        `SELECT p.id, p.nombre, p.descripcion, p.precio, p.stock, p.imagen, c.nombre AS categoria
+        `SELECT p.id, p.nombre, p.descripcion, p.precio,
+            p.precio_oferta AS precioOferta,
+            p.oferta_activa AS ofertaActiva,
+            p.stock, p.imagen, c.nombre AS categoria
          FROM productos p
          INNER JOIN categorias c ON p.categoria_id = c.id
          ${where}
@@ -280,6 +320,7 @@ module.exports = {
     actualizarProducto,
     eliminarProducto,
     contarProductosPorCategoria,
-    obtenerProductosCatalogo
+    obtenerProductosCatalogo,
+    obtenerOfertas
 
 };

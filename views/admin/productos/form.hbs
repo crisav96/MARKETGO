@@ -61,6 +61,12 @@
             </div>
 
             <div class="campo">
+                <label>Precio de oferta (₡)</label>
+                <input type="number" name="precioOferta" step="0.01" min="0.01" value="{{producto.precioOferta}}">
+                <small>Déjalo vacío si el producto no está en oferta.</small>
+            </div>
+
+            <div class="campo">
                 <label>Stock</label>
                 <input type="number" name="stock" min="0" step="1" value="{{producto.stock}}" required>
             </div>

@@ -33,7 +33,20 @@
 
             <p class="detalle-producto-descripcion">{{producto.descripcion}}</p>
 
-            <div class="detalle-producto-precio">₡{{producto.precio}}</div>
+            <div class="detalle-producto-precio">
+
+                {{#if producto.ofertaActiva}}
+
+                    <span class="precio-anterior">₡{{producto.precio}}</span>
+                    <span class="precio-actual">₡{{producto.precioOferta}}</span>
+
+                {{else}}
+
+                    ₡{{producto.precio}}
+
+                {{/if}}
+
+            </div>
 
             <div class="detalle-producto-stock">
 
@@ -56,7 +69,7 @@
 
                 data-nombre="{{producto.nombre}}"
 
-                data-precio="{{producto.precio}}"
+                data-precio="{{#if producto.ofertaActiva}}{{producto.precioOferta}}{{else}}{{producto.precio}}{{/if}}"
 
                 data-imagen="{{producto.imagen}}"
 
